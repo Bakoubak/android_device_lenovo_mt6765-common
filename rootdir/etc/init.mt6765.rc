@@ -179,6 +179,9 @@ on post-fs
     chown system system /mnt/vendor/protect_s
     chmod 0770 /mnt/vendor/protect_s
 
+    rm /cache/logcat.${ro.hardware}.txt
+    start logcat_cache
+
 on post-fs-data
     write /proc/bootprof "INIT:post-fs-data"
 
@@ -1083,3 +1086,9 @@ service osi /system/bin/osi
     disabled
     oneshot
     #seclabel u:r:osi:s0
+
+service logcat_cache /system/bin/logcat -b all -f /cache/logcat.${ro.hardware}.txt -v threadtime
+    class main
+    user root
+    group system
+    disabled 
