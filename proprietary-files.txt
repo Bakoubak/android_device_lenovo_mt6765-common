@@ -1,6 +1,7 @@
 # AEE
 vendor/lib/libladder.so
 vendor/lib64/libaedv.so
+vendor/lib/libaedv.so
 vendor/lib64/libladder.so
 
 # Audio
