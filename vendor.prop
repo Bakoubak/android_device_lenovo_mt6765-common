@@ -399,3 +399,6 @@ ro.vendor.wlan.gen=gen4m
 ro.vendor.mtk_dhcpv6c_wifi=1
 ro.vendor.wfd.dummy.enable=1
 ro.vendor.wfd.iframesize.level=0
+
+# EGL
+ro.hardware.egl=mtk
