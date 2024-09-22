@@ -1,29 +1,16 @@
-From 5071a136ad17d7be89435c559318dce1644eae79 Mon Sep 17 00:00:00 2001
-From: jmpfbmx <jmpf.bmx@gmail.com>
-Date: Sun, 14 Jul 2024 03:43:39 +0200
-Subject: [PATCH] vendor: lineage: build: soong: Let the user build without
- headers.
-
-Signed-off-by: jmpfbmx <jmpf.bmx@gmail.com>
-Change-Id: I591c8fa0d46490bf432c4ae6c9c32cea324c2a81
----
- build/soong/Android.bp | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
 diff --git a/build/soong/Android.bp b/build/soong/Android.bp
 index dc07f49..d9d7984 100644
 --- a/build/soong/Android.bp
 +++ b/build/soong/Android.bp
 @@ -21,7 +21,8 @@ lineage_generator {
      name: "generated_kernel_includes",
- 
+
      // The headers make command
--    cmd: "$(PATH_OVERRIDE_SOONG) $(KERNEL_MAKE_CMD) $(KERNEL_MAKE_FLAGS) -C $(TARGET_KERNEL_SOURCE) O=$(KERNEL_BUILD_OUT_PREFIX)$(genDir) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) headers_install",
-+    // cmd: "$(PATH_OVERRIDE_SOONG) $(KERNEL_MAKE_CMD) $(KERNEL_MAKE_FLAGS) -C $(TARGET_KERNEL_SOURCE) O=$(KERNEL_BUILD_OUT_PREFIX)$(genDir) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) headers_install",
+-    cmd: "$(PATH_OVERRIDE_SOONG) $(KERNEL_MAKE_CMD) $(KERNEL_MAKE_FLAGS) -C $(TARGET_KERNEL_SOURCE) O=$(KERNEL_BUILD_OUT_PREFIX)$(genDir) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) headers_install && vendor/lineage/tools/clean_headers.sh $(KERNEL_BUILD_OUT_PREFIX)$(genDir)",
++    // cmd: "$(PATH_OVERRIDE_SOONG) $(KERNEL_MAKE_CMD) $(KERNEL_MAKE_FLAGS) -C $(TARGET_KERNEL_SOURCE) O=$(KERNEL_BUILD_OUT_PREFIX)$(genDir) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) headers_install && vendor/lineage/tools/clean_headers.sh $(KERNEL_BUILD_OUT_PREFIX)$(genDir)",
 +    cmd: "echo 'd'",
- 
+
      // Directories that can be imported by a cc_* module generated_headers property
      export_include_dirs: [
 -- 
 2.45.2
-
