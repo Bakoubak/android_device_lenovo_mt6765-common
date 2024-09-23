@@ -13,7 +13,7 @@ cc_library_shared {
         "media_plugin_headers",
     ],
     include_dirs: [
-        "frameworks/av/media/libstagefright/foundation/include/media/stagefright/foundation",
+        "frameworks/av/media/module/foundation/include/media/stagefright/foundation",
     ],
 }
 
