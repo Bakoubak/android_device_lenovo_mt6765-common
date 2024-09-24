@@ -298,6 +298,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.secure_element@1.0 \
     android.hardware.secure_element@1.0.vendor
+    android.hardware.secure_element@1.1.vendor
 
 # Sensors
 PRODUCT_PACKAGES += \
