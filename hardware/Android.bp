@@ -1,0 +1,9 @@
+subdirs = [
+    "*",
+]
+
+soong_namespace {
+    imports: [
+        "vendor/lenovo/mt6765-common",
+    ]
+}
