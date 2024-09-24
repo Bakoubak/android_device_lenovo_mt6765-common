@@ -321,7 +321,7 @@ PRODUCT_PACKAGES += \
 
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.1.vendor
+    android.hardware.usb-service.mediatek
 
 # Vendor service manager
 PRODUCT_PACKAGES += \

@@ -1054,10 +1054,6 @@ vendor/lib64/libthha.so
 vendor/lib64/libmtee.so
 vendor/lib64/vendor.microtrust.hardware.capi@2.0.so
 
-# USB
-vendor/bin/hw/android.hardware.usb@1.1-service-mediatek
-vendor/etc/init/android.hardware.usb@1.1-service-mediatek.rc
-
 # WiFi
 bin/iwpriv
 vendor/bin/hw/android.hardware.wifi@1.0-service-lazy-mediatek
