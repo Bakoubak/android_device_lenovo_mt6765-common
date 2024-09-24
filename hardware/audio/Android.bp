@@ -1,5 +1,5 @@
 filegroup {
-    name: "android.hardware.audio-impl-mediatek_srcs",
+    name: "android.hardware.audio-impl-m10hd_srcs",
     srcs: [
         "Device.cpp",
         "DevicesFactory.cpp",
@@ -12,18 +12,18 @@ filegroup {
 }
 
 cc_library_headers {
-    name: "android.hardware.audio-impl-mediatek_headers",
+    name: "android.hardware.audio-impl-m10hd_headers",
     proprietary: true,
     vendor: true,
     export_include_dirs: ["include"],
 }
 
 cc_defaults {
-    name: "android.hardware.audio-impl-mediatek_default",
+    name: "android.hardware.audio-impl-m10hd_default",
     relative_install_path: "hw",
     proprietary: true,
     vendor: true,
-    srcs: [":android.hardware.audio-impl-mediatek_srcs"],
+    srcs: [":android.hardware.audio-impl-m10hd_srcs"],
 
     defaults: ["hidl_defaults"],
 
@@ -46,7 +46,7 @@ cc_defaults {
     ],
 
     header_libs: [
-        "android.hardware.audio-impl-mediatek_headers",
+        "android.hardware.audio-impl-m10hd_headers",
         "android.hardware.audio.common.util@all-versions",
         "libaudioutils_headers",
         "libaudio_system_headers",
@@ -56,13 +56,13 @@ cc_defaults {
     ],
 
     export_header_lib_headers: [
-        "android.hardware.audio-impl-mediatek_headers",
+        "android.hardware.audio-impl-m10hd_headers",
     ],
 }
 
 cc_library_shared {
-    name: "android.hardware.audio@2.0-impl-mediatek",
-    defaults: ["android.hardware.audio-impl-mediatek_default"],
+    name: "android.hardware.audio@2.0-impl-m10hd",
+    defaults: ["android.hardware.audio-impl-m10hd_default"],
     shared_libs: [
         "android.hardware.audio@2.0",
         "android.hardware.audio@2.0-util",
@@ -77,8 +77,8 @@ cc_library_shared {
 }
 
 cc_library_shared {
-    name: "android.hardware.audio@4.0-impl-mediatek",
-    defaults: ["android.hardware.audio-impl-mediatek_default"],
+    name: "android.hardware.audio@4.0-impl-m10hd",
+    defaults: ["android.hardware.audio-impl-m10hd_default"],
 
     shared_libs: [
         "android.hardware.audio@4.0",
@@ -94,8 +94,8 @@ cc_library_shared {
 }
 
 cc_library_shared {
-    name: "android.hardware.audio@5.0-impl-mediatek",
-    defaults: ["android.hardware.audio-impl-mediatek_default"],
+    name: "android.hardware.audio@5.0-impl-m10hd",
+    defaults: ["android.hardware.audio-impl-m10hd_default"],
     shared_libs: [
         "android.hardware.audio@5.0",
         "android.hardware.audio@5.0-util",
@@ -110,8 +110,8 @@ cc_library_shared {
 }
 
 cc_defaults {
-    name: "android.hardware.audio@6.0-impl-mediatek_default",
-    defaults: ["android.hardware.audio-impl-mediatek_default"],
+    name: "android.hardware.audio@6.0-impl-m10hd_default",
+    defaults: ["android.hardware.audio-impl-m10hd_default"],
     shared_libs: [
         "android.hardware.audio@6.0",
         "android.hardware.audio@6.0-util",
@@ -126,13 +126,13 @@ cc_defaults {
 }
 
 cc_library_shared {
-    name: "android.hardware.audio@6.0-impl-mediatek",
-    defaults: ["android.hardware.audio@6.0-impl-mediatek_default"],
+    name: "android.hardware.audio@6.0-impl-m10hd",
+    defaults: ["android.hardware.audio@6.0-impl-m10hd_default"],
 }
 
 cc_defaults {
-    name: "android.hardware.audio@7.0-impl-mediatek_default",
-    defaults: ["android.hardware.audio-impl-mediatek_default"],
+    name: "android.hardware.audio@7.0-impl-m10hd_default",
+    defaults: ["android.hardware.audio-impl-m10hd_default"],
     shared_libs: [
         "android.hardware.audio@7.0",
         "android.hardware.audio@7.0-util",
@@ -149,13 +149,13 @@ cc_defaults {
 }
 
 cc_library_shared {
-    name: "android.hardware.audio@7.0-impl-mediatek",
-    defaults: ["android.hardware.audio@7.0-impl-mediatek_default"],
+    name: "android.hardware.audio@7.0-impl-m10hd",
+    defaults: ["android.hardware.audio@7.0-impl-m10hd_default"],
 }
 
 cc_defaults {
-    name: "android.hardware.audio@7.1-impl-mediatek_default",
-    defaults: ["android.hardware.audio-impl-mediatek_default"],
+    name: "android.hardware.audio@7.1-impl-m10hd_default",
+    defaults: ["android.hardware.audio-impl-m10hd_default"],
     shared_libs: [
         "android.hardware.audio@7.0",
         "android.hardware.audio@7.1",
@@ -175,6 +175,6 @@ cc_defaults {
 }
 
 cc_library_shared {
-    name: "android.hardware.audio@7.1-impl-mediatek",
-    defaults: ["android.hardware.audio@7.1-impl-mediatek_default"],
+    name: "android.hardware.audio@7.1-impl-m10hd",
+    defaults: ["android.hardware.audio@7.1-impl-m10hd_default"],
 }
