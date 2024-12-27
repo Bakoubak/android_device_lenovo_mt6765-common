@@ -139,3 +139,6 @@
 # TrustKernel add
 /sys/class/power_supply/charger/charge_enabled 0666 root root
 
+# Charger
+/sys/class/power_supply/battery input_suspend 0660 system system
+
