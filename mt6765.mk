@@ -84,6 +84,9 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.device@3.5.vendor \
     android.hardware.camera.provider@2.4.vendor \
     libstdc++_vendor \
+    libcamera_metadata.vendor \
+    android.frameworks.sensorservice@1.0.vendor \
+    libpng.vendor
 
 # Control groups and task profiles
 PRODUCT_COPY_FILES += \
