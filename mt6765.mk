@@ -348,17 +348,16 @@ PRODUCT_PACKAGES += \
 
 # WiFi
 PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0.vendor \
-    android.hardware.wifi@1.1.vendor \
-    android.hardware.wifi@1.2.vendor \
-    android.hardware.wifi@1.3.vendor \
+    android.hardware.wifi-service \
     android.hardware.wifi.supplicant@1.0.vendor \
     android.hardware.wifi.supplicant@1.1.vendor \
     android.hardware.wifi.supplicant@1.2.vendor \
     android.hardware.wifi.hostapd@1.0.vendor \
     android.hardware.wifi.hostapd@1.1.vendor \
+    libwifi-hal-wrapper \
     libnetutils.vendor \
-    libnl.vendor
+    libnl.vendor \
+    libwifi-system-iface.vendor \
     
 PRODUCT_COPY_FILES += \
     prebuilts/vndk/v29/arm64/arch-arm-armv8-a/shared/vndk-sp/libcompiler_rt.so:$(TARGET_COPY_OUT_VENDOR)/lib/libcompiler_rt.so \

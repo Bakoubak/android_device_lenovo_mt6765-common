@@ -1054,7 +1054,6 @@ vendor/etc/init/android.hardware.usb@1.1-service-mediatek.rc
 
 # WiFi
 bin/iwpriv
-vendor/bin/hw/android.hardware.wifi@1.0-service-lazy-mediatek
 vendor/bin/hw/hostapd
 vendor/bin/hw/wpa_supplicant
 vendor/bin/hostapd_cli
@@ -1062,7 +1061,6 @@ vendor/bin/wlan_assistant
 vendor/bin/wmt_launcher
 vendor/bin/wmt_loader
 vendor/bin/wpa_cli
-vendor/etc/init/android.hardware.wifi@1.0-service-lazy-mediatek.rc
 vendor/etc/init/hostapd.android.rc
 vendor/etc/init/init_connectivity.rc
 vendor/etc/init/init.wlan_drv.rc
