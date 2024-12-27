@@ -167,6 +167,8 @@ vendor/lib64/libspeech_enh_lib.so
 vendor/lib64/libwebrtc_audio_preprocessing.so
 vendor/lib64/vendor.mediatek.hardware.audio@5.1.so
 vendor/lib64/vendor.mediatek.hardware.atci@1.0.so
+vendor/lib64/libalsautils.so:vendor/lib64/libalsautils-v29.so
+vendor/lib/libalsautils.so:vendor/lib/libalsautils-v29.so
 
 # Bluetooth
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-mediatek
