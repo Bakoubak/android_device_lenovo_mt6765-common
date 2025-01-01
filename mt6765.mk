@@ -139,10 +139,6 @@ PRODUCT_PACKAGES += \
     android.hardware.health-service.mediatek \
     android.hardware.health-service.mediatek-recovery
 
-# Lineage Health
-PRODUCT_PACKAGES += \
-    vendor.lineage.health-service.default
-
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
