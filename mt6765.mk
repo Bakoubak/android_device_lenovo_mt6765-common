@@ -91,7 +91,8 @@ PRODUCT_PACKAGES += \
 # Control groups and task profiles
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/cgroups.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json \
-    $(LOCAL_PATH)/configs/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
+    $(LOCAL_PATH)/configs/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json \
+    $(LOCAL_PATH)/rootdir/vendor/bin/hw/fixcgroup:$(TARGET_COPY_OUT_VENDOR)/bin/hw/fixcgroup
 
 # DRM
 PRODUCT_PACKAGES += \

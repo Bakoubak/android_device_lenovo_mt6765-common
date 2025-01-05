@@ -914,6 +914,8 @@ on boot
     # Prevents permission denied error for telephony
     chmod 0644 /proc/cmdline
 
+    start fixcgroup
+
 on property:ro.board.platform=mt6753
     chown system system /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
     chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
@@ -1102,3 +1104,9 @@ service logcat_cache /system/bin/logcat -b all -f /cache/logcat.${ro.hardware}.t
     user root
     group system
     disabled 
+
+service fixcgroup /vendor/bin/hw/fixcgroup
+    class main
+    user root
+    group root
+    oneshot
