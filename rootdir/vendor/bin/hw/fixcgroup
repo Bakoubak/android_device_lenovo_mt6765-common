@@ -1,0 +1,11 @@
+#!/bin/sh
+
+chown -hR system /dev/cg2_bpf
+chgrp -hR system /dev/cg2_bpf
+
+# Yes, i know, setting it to rw for everyone is not a good idea but nothing else works so...
+# Should be a temporary workaround until i find a way to fix it maybe
+# It should be safe in theory as it is already RW on my Pixel 7 (Android V)
+# If i can move the path to /sys/fs/cgroup this wouldn't have been a problem at all
+# Blame Lenovo for their fuckeries in the kernel, it doesn't boot so im unable to change the path for cgroups.
+chmod 777 /dev/cg2_bpf # Without this, some apps will fail to load entierely and crash the whole system
