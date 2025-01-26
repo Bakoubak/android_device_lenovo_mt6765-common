@@ -133,6 +133,8 @@ on charger
 
     start servicemanager
     start hwservicemanager
+    start health-hal-2-0
+    start charger
     
 on fs
     write /proc/bootprof "INIT:Mount_START"
@@ -1096,6 +1098,16 @@ service osi /system/bin/osi
     disabled
     oneshot
     #seclabel u:r:osi:s0
+
+service charger /system/bin/charger
+    class charger
+    user system
+    group system graphics wakelock input
+    capabilities SYS_BOOT
+    file /dev/kmsg w
+    file /sys/fs/pstore/console-ramoops-0 r
+    file /sys/fs/pstore/console-ramoops r
+    file /proc/last_kmsg r
 
 service logcat_cache /system/bin/logcat -b all -f /cache/logcat.${ro.hardware}.txt -v threadtime
     class main
