@@ -188,9 +188,6 @@ debug.sf.earlyGl.app.duration=24000000
 debug.sf.hwc.min.duration=21000000
 ro.sf.hwrotation=0
 
-# USB
-persist.sys.usb.config=adb
-
 # Wi-Fi
 ro.vendor.wlan.gen=gen4m
 ro.vendor.mtk_dhcpv6c_wifi=1
