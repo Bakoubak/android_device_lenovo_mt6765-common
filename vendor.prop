@@ -172,6 +172,7 @@ ro.surface_flinger.set_idle_timer_ms=250
 ro.surface_flinger.set_touch_timer_ms=300
 debug.hwui.renderer=skiagl
 debug.hwui.skia_atrace_enabled=false
+debug.sf.layer_caching_active_layer_timeout_ms=1000
 debug.renderengine.backend=skiaglthreaded
 debug.sf.enable_gl_backpressure=1
 debug.sf.enable_transaction_tracing=false
