@@ -257,4 +257,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.log.tag.PowerHalAddressUitls=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.PowerHalMgrImpl=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.PowerHalMgrServiceImpl=$(VENDOR_LOG_LEVEL_I) \
-    persist.log.tag.PowerHalWifiMonitor=$(VENDOR_LOG_LEVEL_I)
+    persist.log.tag.PowerHalWifiMonitor=$(VENDOR_LOG_LEVEL_I) \
+    persist.log.tag.WifiVendorHal=$(VENDOR_LOG_LEVEL_I)
