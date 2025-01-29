@@ -95,7 +95,7 @@ BOARD_VNDK_VERSION := current
 
 # SELinux
 # Inherit from the common SEPolicy for Lenovo devices
-include device/lenovo/sepolicy/SEPolicy.mk
+include device/lenovo/sepolicy/sepolicy.mk
 
 # !!! DISABLE IN RELEASE !!!
 SELINUX_IGNORE_NEVERALLOWS := true
