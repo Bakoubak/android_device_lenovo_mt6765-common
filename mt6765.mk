@@ -96,10 +96,6 @@ PRODUCT_PACKAGES += \
     libdrmclearkeyplugin \
     libmockdrmcryptoplugin
 
-# FM
-PRODUCT_PACKAGES += \
-    MtkFMRadio
-
 # Graphics
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-service \
