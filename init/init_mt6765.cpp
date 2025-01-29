@@ -65,8 +65,11 @@ void set_go_default_props() {
         property_override("ro.config.low_ram", "true");
         property_override("ro.lmk.critical_upgrade", "true");
         property_override("ro.lmk.upgrade_pressure", "40");
-        property_override("ro.lmk.downgrade_pressure", "60");
-        property_override("ro.lmk.kill_heaviest_task", "false");
+        property_override("ro.lmk.downgrade_pressure", "30");
+        property_override("ro.lmk.thrashing_limit_decay", "50");
+        property_override("ro.lmk.use_psi", "true");
+        property_override("ro.lmk.kill_heaviest_task", "true");
+        property_override("ro.lmk.use_minfree_levels", "false");
         property_override("ro.statsd.enable", "true");
 
         // set threshold to filter unused apps
