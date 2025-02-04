@@ -913,8 +913,6 @@ on boot
     # Prevents permission denied error for telephony
     chmod 0644 /proc/cmdline
 
-    start fixcgroup
-
 on property:ro.board.platform=mt6753
     chown system system /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
     chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
@@ -1107,9 +1105,3 @@ service charger /system/bin/charger
     file /sys/fs/pstore/console-ramoops-0 r
     file /sys/fs/pstore/console-ramoops r
     file /proc/last_kmsg r
-
-service fixcgroup /vendor/bin/hw/fixcgroup
-    class main
-    user root
-    group root
-    oneshot
