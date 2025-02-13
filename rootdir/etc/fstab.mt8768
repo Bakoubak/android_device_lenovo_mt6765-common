@@ -35,4 +35,4 @@
 /dev/block/platform/bootdevice/by-name/odmdtbo /odmdtbo emmc defaults defaults
 /dev/block/platform/bootdevice/by-name/dtbo /dtbo emmc defaults defaults
 /dev/block/platform/bootdevice/by-name/vbmeta /vbmeta emmc defaults defaults
-/dev/block/zram0 none swap defaults zramsize=55%
+/dev/block/zram0 none swap defaults zramsize=60%,zram_loopback_path=/data/unencrypted/zram_swap,zram_loopback_size=512M
