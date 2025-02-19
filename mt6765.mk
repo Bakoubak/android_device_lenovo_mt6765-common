@@ -350,7 +350,7 @@ PRODUCT_PACKAGES += \
 
 # WiFi
 PRODUCT_PACKAGES += \
-    android.hardware.wifi-service-lazy \
+    android.hardware.wifi-service \
     android.hardware.wifi@1.0.vendor \
     android.hardware.wifi@1.1.vendor \
     android.hardware.wifi@1.2.vendor \
