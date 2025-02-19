@@ -77,7 +77,8 @@ function blob_fixup() {
             ;;
         vendor/bin/hw/wpa_supplicant)
             "${PATCHELF}" --add-needed "libcompiler_rt.so" "${2}"
-            "${PATCHELF}" --add-needed "libssl-ss.so" "${2}"
+            "${PATCHELF}" --replace-needed "libcrypto.so" "libcrypto-v33.so" "${2}"
+            "${PATCHELF}" --replace-needed "libssl.so" "libssl-v33.so" "${2}"
             ;;
         lib/libsink.so)
             "${PATCHELF}" --add-needed libshim_vtservice.so "${2}"
