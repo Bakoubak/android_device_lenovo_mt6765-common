@@ -360,7 +360,10 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi.hostapd@1.0.vendor \
     android.hardware.wifi.hostapd@1.1.vendor \
     libnetutils.vendor \
-    libnl.vendor
+    libnl.vendor \
+    libwifi-system-iface.vendor \
+    libwifi-hal-wrapper
+    
     
 PRODUCT_COPY_FILES += \
     prebuilts/vndk/v29/arm64/arch-arm-armv8-a/shared/vndk-sp/libcompiler_rt.so:$(TARGET_COPY_OUT_VENDOR)/lib/libcompiler_rt.so \
