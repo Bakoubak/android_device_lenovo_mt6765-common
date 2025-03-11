@@ -126,6 +126,9 @@ function blob_fixup() {
         vendor/lib/libMtkOmxVdecEx.so)
             "${PATCHELF}" --replace-needed "libui.so" "libui-v32.so" "${2}"
             ;;
+        vendor/lib*/libdlbdsservice.so|vendor/lib*/soundfx/libswdap.so)
+            "${PATCHELF}" --replace-needed "libstagefright_foundation.so" "libstagefright_foundation-v33.so" "${2}"
+        ;;
     esac
 }
 
