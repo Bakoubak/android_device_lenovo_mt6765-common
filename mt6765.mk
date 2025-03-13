@@ -15,7 +15,7 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Overlays
 PRODUCT_PACKAGES += \
-    FrameworkResOverlayAmar \
+    FrameworksResOverlayAmar \
     SettingsProviderOverlayAmar
 
 # Lineage Overlays
