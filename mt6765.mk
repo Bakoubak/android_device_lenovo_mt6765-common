@@ -98,7 +98,8 @@ PRODUCT_PACKAGES += \
     android.hardware.broadcastradio@2.0 \
     android.hardware.broadcastradio@1.0.vendor \
     android.hardware.broadcastradio@1.1.vendor \
-    android.hardware.broadcastradio@2.0.vendor
+    android.hardware.broadcastradio@2.0.vendor \
+    android.hardware.broadcastradio@1.0-impl
 
 # Camera
 PRODUCT_PACKAGES += \
