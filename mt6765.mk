@@ -74,13 +74,11 @@ PRODUCT_COPY_FILES += \
 
 # Dolby
 PRODUCT_PACKAGES += \
-    DaxUI \
-    daxService \
+    LenovoDolby \
     libsqlite.vendor
 
 PRODUCT_COPY_FILES += \
-    prebuilts/runtime/mainline/i18n/sdk/android/arm64/lib/libandroidicu.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libandroidicu.so \
-    $(LOCAL_PATH)/dolby/proprietary/product/permissions/privapp-com.dolby.daxservice.xml:$(TARGET_COPY_OUT_SYSTEM)/product/etc/permissions/privapp-com.dolby.daxservice.xml
+    prebuilts/runtime/mainline/i18n/sdk/android/arm64/lib/libandroidicu.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libandroidicu.so
 
 TARGET_EXCLUDES_AUDIOFX := true
 

@@ -1,28 +1,37 @@
-// Automatically generated file. DO NOT MODIFY
+//
+// Copyright (C) 2017-2021 The LineageOS Project
+//           (C) 2023-24 Paranoid Android
+//
+// SPDX-License-Identifier: Apache-2.0
+//
 
-soong_namespace {
+android_app {
+    name: "LenovoDolby",
+
+    srcs: ["src/**/*.kt"],
+    resource_dirs: ["res"],
+    certificate: "platform",
+    platform_apis: true,
+    system_ext_specific: true,
+    privileged: true,
+
+    overrides: ["MusicFX"],
+    static_libs: [
+        "SettingsLib",
+        "SpaLib",
+        "androidx.activity_activity-compose",
+        "androidx.compose.material3_material3",
+        "androidx.compose.runtime_runtime",
+        "androidx.preference_preference",
+        "org.lineageos.settings.resources",
+    ],
+
+    required: ["preinstalled-packages-platform-dolby.xml"],
 }
 
-android_app_import {
-	name: "DaxUI",
-	owner: "lenovo",
-	apk: "proprietary/product/app/DaxUI/DaxUI.apk",
-	certificate: "platform",
-	dex_preopt: {
-		enabled: false,
-	},
-	product_specific: true,
-	privileged: true,
-}
-
-android_app_import {
-	name: "daxService",
-	owner: "lenovo",
-	apk: "proprietary/product/priv-app/daxService/daxService.apk",
-	certificate: "platform",
-	dex_preopt: {
-		enabled: false,
-	},
-	product_specific: true,
-	privileged: true,
+prebuilt_etc {
+    name: "preinstalled-packages-platform-dolby.xml",
+    src: "preinstalled-packages-platform-dolby.xml",
+    sub_dir: "sysconfig",
+    system_ext_specific: true,
 }
