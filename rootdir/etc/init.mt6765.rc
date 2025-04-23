@@ -899,6 +899,9 @@ on boot
     chown root radio /proc/net/netfilter/nfnetlink_log
     chown root radio /proc/net/netfilter/nfnetlink_queue
 
+    # Restrict permissions to socket file 
+    chmod 440 /proc/net/unix
+
     # WMT proc
     chown shell system /proc/driver/wmt_dbg
     chown shell system /proc/driver/wmt_aee
