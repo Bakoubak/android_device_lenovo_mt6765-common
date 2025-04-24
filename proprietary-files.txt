@@ -412,6 +412,7 @@ vendor/lib64/hw/gatekeeper.mt6765.so
 vendor/bin/hw/android.hardware.gnss@2.0-service-mediatek
 vendor/bin/lbs_hidl_service
 vendor/bin/mtk_agpsd
+vendor/bin/mnld
 vendor/etc/init/android.hardware.gnss@2.0-service-mediatek.rc
 vendor/etc/init/mtk_agpsd_p.rc
 vendor/etc/ipsec/ipsec.conf
