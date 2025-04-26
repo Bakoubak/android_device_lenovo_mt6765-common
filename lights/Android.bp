@@ -14,9 +14,9 @@
 // limitations under the License.
 
 cc_binary {
-    name: "android.hardware.light-service.blossom",
-    init_rc: ["android.hardware.light-service.blossom.rc"],
-    vintf_fragments: ["android.hardware.light-service.blossom.xml"],
+    name: "android.hardware.light-service.lenovo",
+    init_rc: ["android.hardware.light-service.lenovo.rc"],
+    vintf_fragments: ["android.hardware.light-service.lenovo.xml"],
     relative_install_path: "hw",
     srcs: [
         "main.cpp",
