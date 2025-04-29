@@ -196,7 +196,9 @@ ro.vendor.wfd.dummy.enable=1
 ro.vendor.wfd.iframesize.level=0
 
 # Dolby
+ro.vendor.audio.device.dbcom=dolby_common
 ro.vendor.dolby.dax.version=DAX3_3.5.6.11_r1
+ro.vendor.audio.dolby.dax.support=true
 
 # EGL
 ro.hardware.egl=mtk
