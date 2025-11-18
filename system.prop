@@ -51,3 +51,6 @@ lineage.updater.uri=https://ota.vistaslayer.ovh/api/v1/{device}/{type}/{incr}
 
 # IncrementalFS
 ro.incremental.enable=yes
+
+# DT2W
+persist.vendor.gesture.dclick=1
