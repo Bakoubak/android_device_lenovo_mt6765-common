@@ -278,8 +278,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/perf/powercontable.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powercontable.xml \
     $(LOCAL_PATH)/perf/powerscntbl.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerscntbl.xml \
-    $(LOCAL_PATH)/perf/power_whitelist_cfg.xml:$(TARGET_COPY_OUT_VENDOR)/etc/power_whitelist_cfg.xml
-
+    $(LOCAL_PATH)/perf/power_whitelist_cfg.xml:$(TARGET_COPY_OUT_VENDOR)/etc/power_whitelist_cfg.xml \
+    $(LOCAL_PATH)/perf/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 # Properties
 include $(LOCAL_PATH)/vendor_logtag.mk
 
