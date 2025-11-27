@@ -647,7 +647,7 @@ on post-fs-data
     write /dev/memcg/memory.swappiness 150
     write /dev/memcg/apps/memory.swappiness 150
     write /dev/memcg/system/memory.swappiness 150
-    write /proc/sys/vm/swappiness 150
+    write /proc/sys/vm/swappiness 100
 
 on post-fs-data && property:ro.crypto.type=block
     mkdir /data/unencrypted
