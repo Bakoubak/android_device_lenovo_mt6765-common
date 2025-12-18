@@ -687,6 +687,9 @@ on boot
     chown system system /sys/devices/system/cpu/rq-stats/avg_htasks_thresh
     chmod 0660 /sys/devices/system/cpu/rq-stats/avg_htasks_thresh
 
+    chown system system /sys/class/power_supply/battery/charging_enabled
+    chmod 0664 /sys/class/power_supply/battery/charging_enabled
+
     chown system /sys/module/mlog/parameters/do_mlog
     chown system /sys/module/mlog/parameters/timer_intval
 
