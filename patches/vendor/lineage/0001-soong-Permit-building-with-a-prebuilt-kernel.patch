@@ -1,0 +1,27 @@
+From 84b175b69a3649530ba149cea65e880004a448fe Mon Sep 17 00:00:00 2001
+From: VistaSlayer <bakoubak85@gmail.com>
+Date: Mon, 5 Jan 2026 00:13:00 +0100
+Subject: [PATCH] soong: Permit building with a prebuilt kernel
+
+Change-Id: I06041a55faa57d942136106e0f2aeebc256ccaed
+---
+ build/soong/Android.bp | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/build/soong/Android.bp b/build/soong/Android.bp
+index 5536232..04e7b53 100644
+--- a/build/soong/Android.bp
++++ b/build/soong/Android.bp
+@@ -21,7 +21,8 @@ lineage_generator {
+     name: "generated_kernel_includes",
+ 
+     // The headers make command
+-    cmd: "$(PATH_OVERRIDE_SOONG) $(KERNEL_MAKE_CMD) $(KERNEL_MAKE_FLAGS) -C $(TARGET_KERNEL_SOURCE) O=$(KERNEL_BUILD_OUT_PREFIX)$(genDir) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) headers_install && vendor/lineage/tools/clean_headers.sh $(KERNEL_BUILD_OUT_PREFIX)$(genDir)",
++    // cmd: "$(PATH_OVERRIDE_SOONG) $(KERNEL_MAKE_CMD) $(KERNEL_MAKE_FLAGS) -C $(TARGET_KERNEL_SOURCE) O=$(KERNEL_BUILD_OUT_PREFIX)$(genDir) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) headers_install && vendor/lineage/tools/clean_headers.sh $(KERNEL_BUILD_OUT_PREFIX)$(genDir)",
++    cmd: "echo 'd'",
+ 
+     // Directories that can be imported by a cc_* module generated_headers property
+     export_include_dirs: [
+-- 
+2.43.0
+
