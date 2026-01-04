@@ -25,12 +25,17 @@ TARGET_2ND_CPU_VARIANT := cortex-a53
 BOARD_HAS_MTK_HARDWARE := true
 
 # Lineage Health (Charge Control)
-TARGET_HEALTH_CHARGING_CONTROL_CHARGING_PATH := /sys/class/power_supply/charger/charge_enabled
-TARGET_HEALTH_CHARGING_CONTROL_CHARGING_ENABLED := 1
-TARGET_HEALTH_CHARGING_CONTROL_CHARGING_DISABLED := 0
-TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_BYPASS := false
-TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_TOGGLE := true
-TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_DEADLINE := false
+$(call soong_config_set,lineage_health,charging_control_charging_path,/sys/class/power_supply/charger/charge_enabled)
+
+$(call soong_config_set,lineage_health,charging_control_charging_enabled,1)
+
+$(call soong_config_set,lineage_health,charging_control_charging_disabled,0)
+
+$(call soong_config_set,lineage_health,charging_control_supports_bypass,false)
+
+$(call soong_config_set,lineage_health,charging_control_supports_toggle,true)
+
+$(call soong_config_set,lineage_health,charging_control_supports_deadline,false)
 
 # Broken
 BUILD_BROKEN_DUP_RULES := true
@@ -51,7 +56,7 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
 DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/manifest.xml
 
 # Init
-TARGET_INIT_VENDOR_LIB := //$(COMMON_PATH):libinit_mt6765
+$(call soong_config_set,libinit,vendor_init_lib,//$(COMMON_PATH):libinit_mt6765)
 
 # Kernel
 BOARD_KERNEL_IMAGE_NAME := Image.gz
