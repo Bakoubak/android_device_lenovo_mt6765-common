@@ -12,7 +12,8 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/mediatek \
     device/lenovo/mt6765-common/dolby \
-    device/lenovo/mt6765-common/lights
+    device/lenovo/mt6765-common/lights \
+    device/lenovo/mt6765-common/libshims
 
 # Overlays
 PRODUCT_PACKAGES += \
