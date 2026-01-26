@@ -71,20 +71,20 @@ PRODUCT_COPY_FILES += \
 # VNDK
 PRODUCT_PACKAGES += \
     libmedia_helper-v29 \
-    libstagefright_foundation-v33 \
     libgatekeeper-v29 \
-    libutils-v30 \
-    libunwindstack-v30 \
-    android.hardware.common-V2-ndk_platform \
-    android.hardware.graphics.common-V2-ndk_platform.so \
-    libui-v32 \
-    libssl-v33 \
-    libcrypto-v33 \
     libkeymaster_messages-v29 \
     libkeymaster_portable-v29 \
     libpuresoftkeymasterdevice-v29 \
+    libcompiler_rt-v29 \
+    libutils-v30 \
+    libunwindstack-v30 \
+    libui-v32 \
     libclang_rt.ubsan_standalone-aarch64-android-v32 \
-    libcompiler_rt-v29
+    libssl-v33 \
+    libcrypto-v33 \
+    libstagefright_foundation-v33 \
+    android.hardware.common-V2-ndk_platform \
+    android.hardware.graphics.common-V2-ndk_platform
 
 # Dolby
 PRODUCT_PACKAGES += \

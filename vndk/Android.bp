@@ -1,0 +1,266 @@
+cc_prebuilt_library_shared {
+    name: "libmediahelper-v29",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["prebuilts/v29/arm/libmediahelper-v29.so"],
+        },
+        android_arm64: {
+            srcs: ["prebuilts/v29/arm64/libmediahelper-v29.so"],
+        },
+    },
+    compile_multilib: "both",
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "libgatekeeper-v29",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["prebuilts/v29/arm/libgatekeeper-v29.so"],
+        },
+        android_arm64: {
+            srcs: ["prebuilts/v29/arm64/libgatekeeper-v29.so"],
+        },
+    },
+    compile_multilib: "both",
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "libkeymaster_messages-v29",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["prebuilts/v29/arm/libkeymaster_messages-v29.so"],
+        },
+        android_arm64: {
+            srcs: ["prebuilts/v29/arm64/libkeymaster_messages-v29.so"],
+        },
+    },
+    compile_multilib: "both",
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "libpuresoftkeymasterdevice-v29",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["prebuilts/v29/arm/libpuresoftkeymasterdevice-v29.so"],
+        },
+        android_arm64: {
+            srcs: ["prebuilts/v29/arm64/libpuresoftkeymasterdevice-v29.so"],
+        },
+    },
+    compile_multilib: "both",
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "libcompiler_rt-v29",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["prebuilts/v29/arm/libcompiler_rt-v29.so"],
+        },
+        android_arm64: {
+            srcs: ["prebuilts/v29/arm64/libcompiler_rt-v29.so"],
+        },
+    },
+    compile_multilib: "both",
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "libkeymaster_portable-v29",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["prebuilts/v29/arm/libkeymaster_portable-v29.so"],
+        },
+        android_arm64: {
+            srcs: ["prebuilts/v29/arm64/libkeymaster_portable-v29.so"],
+        },
+    },
+    compile_multilib: "both",
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "libutils-v30",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["prebuilts/v30/arm/libutils-v30.so"],
+        },
+        android_arm64: {
+            srcs: ["prebuilts/v30/arm64/libutils-v30.so"],
+        },
+    },
+    compile_multilib: "both",
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "libunwindstack-v30",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["prebuilts/v30/arm/libunwindstack-v30.so"],
+        },
+        android_arm64: {
+            srcs: ["prebuilts/v30/arm64/libunwindstack-v30.so"],
+        },
+    },
+    compile_multilib: "both",
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "libui-v32",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["prebuilts/v32/arm/libui-v32.so"],
+        },
+        android_arm64: {
+            srcs: ["prebuilts/v32/arm64/libui-v32.so"],
+        },
+    },
+    compile_multilib: "both",
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "libclang_rt.ubsan_standalone-aarch64-android-v32",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: ["prebuilts/v32/arm64/libclang_rt.ubsan_standalone-aarch64-android-v32.so"],
+        },
+    },
+    compile_multilib: "64",
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "android.hardware.common-V2-ndk_platform",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["prebuilts/v32/arm/android.hardware.common-V2-ndk_platform.so"],
+        },
+        android_arm64: {
+            srcs: ["prebuilts/v32/arm64/android.hardware.common-V2-ndk_platform.so"],
+        },
+    },
+    compile_multilib: "both",
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "android.hardware.graphics.common-V2-ndk_platform",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["prebuilts/v32/arm/android.hardware.graphics.common-V2-ndk_platform.so"],
+        },
+        android_arm64: {
+            srcs: ["prebuilts/v32/arm64/android.hardware.graphics.common-V2-ndk_platform.so"],
+        },
+    },
+    compile_multilib: "both",
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "libssl-v33",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["prebuilts/v33/arm/libssl-v33.so"],
+        },
+        android_arm64: {
+            srcs: ["prebuilts/v33/arm64/libssl-v33.so"],
+        },
+    },
+    compile_multilib: "both",
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "libstagefright_foundation-v33",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["prebuilts/v33/arm/libstagefright_foundation-v33.so"],
+        },
+        android_arm64: {
+            srcs: ["prebuilts/v33/arm64/libstagefright_foundation-v33.so"],
+        },
+    },
+    compile_multilib: "both",
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "libcrypto-v33",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["prebuilts/v33/arm/libcrypto-v33.so"],
+        },
+        android_arm64: {
+            srcs: ["prebuilts/v33/arm64/libcrypto-v33.so"],
+        },
+    },
+    compile_multilib: "both",
+    check_elf_files: false,
+}
