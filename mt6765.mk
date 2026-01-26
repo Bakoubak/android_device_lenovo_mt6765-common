@@ -172,6 +172,9 @@ PRODUCT_PACKAGES += \
     android.hardware.health-service.mediatek-recovery \
     vendor.lineage.health-service.default
 
+# UFFD GC
+OVERRIDE_ENABLE_UFFD_GC := false
+
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
