@@ -35,6 +35,24 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+    name: "libmedia_helper-v29",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["prebuilts/v29/arm/libmedia_helper-v29.so"],
+        },
+        android_arm64: {
+            srcs: ["prebuilts/v29/arm64/libmedia_helper-v29.so"],
+        },
+    },
+    compile_multilib: "both",
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
     name: "libkeymaster_messages-v29",
     vendor: true,
     strip: {
