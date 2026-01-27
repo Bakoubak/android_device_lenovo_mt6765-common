@@ -1,22 +1,4 @@
 cc_prebuilt_library_shared {
-    name: "libmediahelper-v29",
-    vendor: true,
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: ["prebuilts/v29/arm/libmediahelper-v29.so"],
-        },
-        android_arm64: {
-            srcs: ["prebuilts/v29/arm64/libmediahelper-v29.so"],
-        },
-    },
-    compile_multilib: "both",
-    check_elf_files: false,
-}
-
-cc_prebuilt_library_shared {
     name: "libgatekeeper-v29",
     vendor: true,
     strip: {
