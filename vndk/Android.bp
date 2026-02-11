@@ -264,21 +264,3 @@ cc_prebuilt_library_shared {
     compile_multilib: "both",
     check_elf_files: false,
 }
-
-cc_prebuilt_library_shared {
-    name: "libcrypto-v33",
-    vendor: true,
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: ["prebuilts/v33/arm/libcrypto-v33.so"],
-        },
-        android_arm64: {
-            srcs: ["prebuilts/v33/arm64/libcrypto-v33.so"],
-        },
-    },
-    compile_multilib: "both",
-    check_elf_files: false,
-}
