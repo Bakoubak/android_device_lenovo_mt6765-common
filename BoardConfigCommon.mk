@@ -37,10 +37,6 @@ $(call soong_config_set,lineage_health,charging_control_supports_toggle,true)
 
 $(call soong_config_set,lineage_health,charging_control_supports_deadline,false)
 
-# MicroDroid
-PRODUCT_ENABLE_VIRTUALIZATION := false
-PRODUCT_DISABLE_MICRODROID := true
-
 # Broken
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
