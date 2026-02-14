@@ -115,8 +115,11 @@ BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 
 # SELinux
-# Inherit from the common SEPolicy for Lenovo devices
-include device/lenovo/sepolicy/sepolicy.mk
+# Older blobs, so enable legacy sepolicy for VTS
+BOARD_MTK_SEPOLICY_IS_LEGACY := true
+
+# Inherit from the common SEPolicy for Mediatek devices
+include device/mediatek/sepolicy_vndr/SEPolicy.mk
 
 # !!! DISABLE IN RELEASE !!!
 SELINUX_IGNORE_NEVERALLOWS := true
