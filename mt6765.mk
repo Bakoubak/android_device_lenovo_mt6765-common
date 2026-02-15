@@ -100,7 +100,6 @@ TARGET_EXCLUDES_AUDIOFX := true
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth.audio-impl \
     android.hardware.bluetooth.audio@2.0.vendor \
-    android.hardware.bluetooth.a2dp@1.0.vendor \
     android.hardware.bluetooth@1.0.vendor
 
 # Broadcastradio
@@ -299,8 +298,7 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.config@1.2 \
     android.hardware.radio.config@1.0.vendor \
     android.hardware.radio.config@1.1.vendor \
-    android.hardware.radio.config@1.2.vendor \
-    MtkFMRadio
+    android.hardware.radio.config@1.2.vendor
 
 PRODUCT_PACKAGES += \
     init.connectivity.rc \
