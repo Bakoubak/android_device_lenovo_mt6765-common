@@ -98,7 +98,7 @@ WIFI_DRIVER_STATE_ON := "1"
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
-BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag --chain_partition recovery:1:external/avb/test/data/testkey_rsa4096.pem
 
 BOARD_AVB_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
