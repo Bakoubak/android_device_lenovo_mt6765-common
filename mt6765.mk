@@ -14,8 +14,6 @@ PRODUCT_SOONG_NAMESPACES += \
     device/lenovo/mt6765-common/dolby \
     device/lenovo/mt6765-common/lights
 
-$(call add-radio-file, $(COMMON_PATH)/prebuilts/lk.img)
-
 # Overlays
 PRODUCT_PACKAGES += \
     FrameworksResOverlayAmar \
