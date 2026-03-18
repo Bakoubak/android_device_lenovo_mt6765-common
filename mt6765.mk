@@ -15,8 +15,6 @@ PRODUCT_SOONG_NAMESPACES += \
     device/lenovo/mt6765-common/lights \
     device/lenovo/mt6765-common/libshims
 
-$(call add-radio-file, $(COMMON_PATH)/prebuilts/lk.img)
-
 # Overlays
 PRODUCT_PACKAGES += \
     FrameworksResOverlayAmar \
