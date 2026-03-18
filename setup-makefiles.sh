@@ -43,6 +43,8 @@ if [ -s "${MY_DIR}/../${DEVICE}/proprietary-files.txt" ]; then
     # The standard device blobs
     write_makefiles "${MY_DIR}/../${DEVICE}/proprietary-files.txt" true
 
+    append_firmware_calls_to_makefiles "${MY_DIR}/proprietary-firmware.txt"
+
     # Finish
     write_footers
 fi
