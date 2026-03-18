@@ -43,5 +43,4 @@ def OTA_InstallEnd(info):
   AddImage(info, "vbmeta_system.img", "/dev/block/by-name/vbmeta_system")
   AddImage(info, "dtbo.img", "/dev/block/by-name/dtbo")
   AddImage(info, "lk.img", "/dev/block/by-name/lk")
-  AddImage(info, "recovery.img", "/dev/block/by-name/recovery")
   return
