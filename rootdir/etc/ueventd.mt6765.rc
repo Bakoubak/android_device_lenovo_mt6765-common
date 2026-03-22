@@ -142,3 +142,5 @@
 # Charger
 /sys/class/power_supply/battery input_suspend 0660 system system
 
+# SMI
+/dev/MTK_SMI    0666   system     media
