@@ -368,18 +368,18 @@ lib/libsysenv_system.so
 lib64/libsysenv_system.so
 
 # DRM
-vendor/bin/hw/android.hardware.drm@1.3-service.widevine|bb1ee465a6608d2704fbe9a787acbc7c4dc0aa85
-vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc|a9ce64f68c86725c06c1b1429e90b04ff96ebf60
-vendor/lib/mediadrm/libwvdrmengine.so|d2c0ab317844f6c7f87b1c438f3913ce2ff11d95
-vendor/lib/libtlcWidevineModularDrm.so|739a0a91861971c7f8c36557f8e7a98770fbcf6b
-vendor/lib/liburee_meta_drmkeyinstall.so|c9bae12031e96034c2ff3733d6a75cf5a6cb028e
-vendor/lib/libwvhidl.so|6b1ac0d65a02321ee24ba9c779f373eb9078d58d
-vendor/lib/liboemcrypto.so|904d2b682e1561f0cc8ea25ad67831ac1b79aae0
-vendor/lib64/mediadrm/libwvdrmengine.so|48b197127088b4ecfb8c5070b3211e47dae23dfd
-vendor/lib64/libtlcWidevineModularDrm.so|dec1342448f4813fecadfd97f750e514c4a53ba8
-vendor/lib64/liburee_meta_drmkeyinstall.so|7dea819d15c601cbde4dc3117309c6e0875eb1d0
-vendor/lib64/libwvhidl.so|69ac6b8755573b0e80f0578bb0f9e42ce9810e40
-vendor/lib64/liboemcrypto.so|0e18fddd664b744e51fa943d03f48be45801892e
+vendor/bin/hw/android.hardware.drm@1.2-service.widevine
+vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc
+vendor/lib/mediadrm/libwvdrmengine.so
+vendor/lib/libtlcWidevineModularDrm.so
+vendor/lib/liburee_meta_drmkeyinstall.so
+vendor/lib/libwvhidl.so
+vendor/lib/liboemcrypto.so
+vendor/lib64/mediadrm/libwvdrmengine.so
+vendor/lib64/libtlcWidevineModularDrm.so
+vendor/lib64/liburee_meta_drmkeyinstall.so
+vendor/lib64/libwvhidl.so
+vendor/lib64/liboemcrypto.so
 
 # Dolby
 vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service
