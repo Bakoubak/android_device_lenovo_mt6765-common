@@ -374,10 +374,12 @@ vendor/lib/mediadrm/libwvdrmengine.so|d2c0ab317844f6c7f87b1c438f3913ce2ff11d95
 vendor/lib/libtlcWidevineModularDrm.so|739a0a91861971c7f8c36557f8e7a98770fbcf6b
 vendor/lib/liburee_meta_drmkeyinstall.so|c9bae12031e96034c2ff3733d6a75cf5a6cb028e
 vendor/lib/libwvhidl.so|6b1ac0d65a02321ee24ba9c779f373eb9078d58d
+vendor/lib/liboemcrypto.so|904d2b682e1561f0cc8ea25ad67831ac1b79aae0
 vendor/lib64/mediadrm/libwvdrmengine.so|48b197127088b4ecfb8c5070b3211e47dae23dfd
 vendor/lib64/libtlcWidevineModularDrm.so|dec1342448f4813fecadfd97f750e514c4a53ba8
 vendor/lib64/liburee_meta_drmkeyinstall.so|7dea819d15c601cbde4dc3117309c6e0875eb1d0
 vendor/lib64/libwvhidl.so|69ac6b8755573b0e80f0578bb0f9e42ce9810e40
+vendor/lib64/liboemcrypto.so|0e18fddd664b744e51fa943d03f48be45801892e
 
 # Dolby
 vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service
