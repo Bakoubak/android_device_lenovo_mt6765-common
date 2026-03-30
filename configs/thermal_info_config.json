@@ -1,0 +1,33 @@
+{
+  "Sensors": [
+    {
+      "Name": "CPU_T",
+      "Type": "CPU",
+      "HotThreshold": ["NAN", "NAN", "NAN", 85, 90, 100, 117],
+      "VrThreshold": "85.0",
+      "Multiplier": 0.001
+    },
+    {
+      "Name": "GPU_T",
+      "Type": "GPU",
+      "HotThreshold": ["NAN", "NAN", "NAN", 85, 90, 100, 117],
+      "VrThreshold": "85.0",
+      "Multiplier": 0.001
+    },
+    {
+      "Name": "BAT_T",
+      "Type": "BATTERY",
+      "HotThreshold": ["NAN", "NAN", "NAN", 50, 55, 59, 60],
+      "VrThreshold": "50.0",
+      "Multiplier": 0.001
+    },
+    {
+      "Name": "SKIN_T",
+      "Type": "SKIN",
+      "HotThreshold": ["NAN", "NAN", "NAN", 50, 70, 80, 90],
+      "VrThreshold": "50.0",
+      "Multiplier": 0.001
+    }
+  ],
+  "CoolingDevices": []
+}
