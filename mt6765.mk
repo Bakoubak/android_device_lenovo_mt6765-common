@@ -13,8 +13,10 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/interfaces \
     hardware/google/pixel \
     hardware/mediatek \
+    hardware/mediatek/libmtkperf_client \
     device/lenovo/mt6765-common/dolby \
-    device/lenovo/mt6765-common/lights
+    device/lenovo/mt6765-common/lights \
+    hardware/lineage/interfaces/power-libperfmgr
 
 # Overlays
 PRODUCT_PACKAGES += \
