@@ -361,11 +361,11 @@ vendor/lib64/vendor.mediatek.hardware.camera.postproc@1.0.so
 vendor/lib64/vendor.mediatek.hardware.camera.security@1.0.so
 
 # Charger
-system/bin/kpoc_charger
-system/etc/init/kpoc_charger.rc
+system/bin/kpoc_charger:bin/kpoc_charger
+system/etc/init/kpoc_charger.rc:etc/init/kpoc_charger.rc
 system/lib/libshowlogo.so
-system/lib/libsysenv_system.so
-system/lib64/libsysenv_system.so
+system/lib/libsysenv_system.so:lib/libsysenv_system.so
+system/lib64/libsysenv_system.so:lib64/libsysenv_system.so
 
 # DRM
 vendor/bin/hw/android.hardware.drm@1.2-service.widevine
@@ -403,8 +403,8 @@ vendor/lib64/vendor.mediatek.hardware.engineermode@1.2.so
 
 # FMRadio
 vendor/etc/init/init.fmradio_drv.rc
--product/lib/libfmjni.so:system/lib/libfmjni.so
--product/lib64/libfmjni.so:system/lib64/libfmjni.so
+-product/lib/libfmjni.so:lib/libfmjni.so
+-product/lib64/libfmjni.so:lib64/libfmjni.so
 
 # Gatekeeper
 vendor/lib/hw/gatekeeper.mt6765.so
@@ -727,16 +727,16 @@ vendor/lib/libneuropilot_hal_utils.so
 vendor/lib64/libneuropilot_hal_utils.so
 
 # OMX
-system/lib64/extractors/libmtkadpcmextractor.so
-system/lib64/extractors/libmtkalacextractor.so
-system/lib64/extractors/libmtkapeextractor.so
-system/lib64/extractors/libmtkasfextractor.so
-system/lib64/extractors/libmtkaviextractor.so
-system/lib64/extractors/libmtkflvextractor.so
-system/lib64/extractors/libmtkmkvextractor.so
-system/lib64/extractors/libmtkmp3extractor.so
-system/lib64/extractors/libmtkmpeg2extractor.so
-system/lib64/libmtkavenhancements.so
+system/lib64/extractors/libmtkadpcmextractor.so:lib64/extractors/libmtkadpcmextractor.so
+system/lib64/extractors/libmtkalacextractor.so:lib64/extractors/libmtkalacextractor.so
+system/lib64/extractors/libmtkapeextractor.so:lib64/extractors/libmtkapeextractor.so
+system/lib64/extractors/libmtkasfextractor.so:lib64/extractors/libmtkasfextractor.so
+system/lib64/extractors/libmtkaviextractor.so:lib64/extractors/libmtkaviextractor.so
+system/lib64/extractors/libmtkflvextractor.so:lib64/extractors/libmtkflvextractor.so
+system/lib64/extractors/libmtkmkvextractor.so:lib64/extractors/libmtkmkvextractor.so
+system/lib64/extractors/libmtkmp3extractor.so:lib64/extractors/libmtkmp3extractor.so
+system/lib64/extractors/libmtkmpeg2extractor.so:lib64/extractors/libmtkmpeg2extractor.so
+system/lib64/libmtkavenhancements.so:lib64/libmtkavenhancements.so
 vendor/bin/hw/vendor.mediatek.hardware.mtkcodecservice@1.1-service
 vendor/etc/init/vendor.mediatek.hardware.mtkcodecservice@1.1-service.rc
 vendor/lib/hw/vendor.mediatek.hardware.mtkcodecservice@1.1-impl.so
@@ -798,9 +798,9 @@ vendor/lib64/vendor.mediatek.hardware.power@2.0.so
 vendor/lib64/vendor.mediatek.hardware.power@2.1.so
 
 # Radio
-system/bin/modemdbfilter_client
-system/etc/init/modemdbfilter_client.rc
-system/lib64/vendor.mediatek.hardware.modemdbfilter@1.0.so
+system/bin/modemdbfilter_client:bin/modemdbfilter_client
+system/etc/init/modemdbfilter_client.rc:etc/init/modemdbfilter_client.rc
+system/lib64/vendor.mediatek.hardware.modemdbfilter@1.0.so:lib64/vendor.mediatek.hardware.modemdbfilter@1.0.so
 vendor/bin/hw/vendor.mediatek.hardware.mms@1.5-service
 vendor/bin/hw/vendor.mediatek.hardware.nvram@1.1-service
 vendor/bin/hw/mtkfusionrild
@@ -1026,7 +1026,7 @@ vendor/lib64/libmtee.so
 vendor/lib64/vendor.microtrust.hardware.capi@2.0.so
 
 # WiFi
-system/bin/iwpriv
+system/bin/iwpriv:bin/iwpriv
 vendor/bin/hw/android.hardware.wifi@1.0-service-lazy-mediatek
 vendor/bin/hw/hostapd
 vendor/bin/hw/wpa_supplicant
