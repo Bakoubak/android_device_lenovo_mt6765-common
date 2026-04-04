@@ -4,7 +4,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+from extract_utils.file import File
 from extract_utils.fixups_blob import (
+    BlobFixupCtx,
     blob_fixup,
     blob_fixups_user_type,
 )
@@ -17,8 +19,14 @@ from extract_utils.main import (
     ExtractUtils,
     ExtractUtilsModule,
 )
+from extract_utils.tools import (
+    llvm_objdump_path,
+)
+from extract_utils.utils import (
+    run_cmd,
+)
 
-namespace_imports=[
+namespace_imports = [
     "hardware/google/interfaces",
     "hardware/google/pixel",
     "hardware/mediatek",
@@ -27,7 +35,7 @@ namespace_imports=[
     "device/lenovo/mt6765-common/lights",
     "device/lenovo/mt6765-common/libshims",
     "hardware/lineage/interfaces/power-libperfmgr",
-],
+]
 
 blob_fixups: blob_fixups_user_type = {
     'lib/libshowlogo.so': blob_fixup()
@@ -84,7 +92,5 @@ module = ExtractUtilsModule(
 )
 
 if __name__ == '__main__':
-    utils = ExtractUtils.device_with_common(
-        module, 'amar_row_lte', 'lenovo'
-    )
+    utils = ExtractUtils.device(module)
     utils.run()
