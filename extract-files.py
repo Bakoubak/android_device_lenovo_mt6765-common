@@ -79,6 +79,10 @@ blob_fixups: blob_fixups_user_type = {
 }
 
 lib_fixups: lib_fixups_user_type = {
+    'libprotobuf-cpp-lite-3.9.1': lambda lib, partition: f'{lib}-vendorcompat',
+    'libprotobuf-cpp-full-3.9.1': lambda lib, partition: f'{lib}-vendorcompat',
+    'libprotobuf-cpp-lite': lambda lib, partition: f'{lib}-vendorcompat',
+    'libprotobuf-cpp-full': lambda lib, partition: f'{lib}-vendorcompat',
 }
 
 module = ExtractUtilsModule(
