@@ -70,7 +70,7 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libutils.so', 'libutils-v30.so'),
     'vendor/lib*/hw/libSoftGatekeeper.so': blob_fixup()
         .replace_needed('libgatekeeper.so', 'libgatekeeper-v29.so'),
-    ('vendor/lib64/libmtkcam_ulog.so', 'vendor/lib64/libcam.feature_utils.so', 'vendor/lib64/libcam.iopipe.so'): blob_fixup()
+    ('vendor/lib*/libmtkcam_ulog.so', 'vendor/lib64/libcam.feature_utils.so', 'vendor/lib64/libcam.iopipe.so'): blob_fixup()
         .replace_needed('libunwindstack.so', 'libunwindstack-v30.so')
         .replace_needed('libutils.so', 'libutils-v30.so'),
     'vendor/lib/libMtkOmxVdecEx.so': blob_fixup()
