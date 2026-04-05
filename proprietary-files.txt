@@ -403,8 +403,8 @@ vendor/lib64/vendor.mediatek.hardware.engineermode@1.2.so
 
 # FMRadio
 vendor/etc/init/init.fmradio_drv.rc
--product/lib/libfmjni.so:system/lib/libfmjni.so
--product/lib64/libfmjni.so:system/lib64/libfmjni.so
+-product/lib/libfmjni.so:system/lib/libfmjni.so;MODULE=prebuilt_libfmjni
+-product/lib64/libfmjni.so:system/lib64/libfmjni.so;MODULE=prebuilt_libfmjni
 
 # Gatekeeper
 vendor/lib/hw/gatekeeper.mt6765.so
