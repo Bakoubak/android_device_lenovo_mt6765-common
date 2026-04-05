@@ -85,6 +85,7 @@ lib_fixups: lib_fixups_user_type = {
     'libprotobuf-cpp-lite': lambda lib, partition: f'{lib}-vendorcompat',
     'libprotobuf-cpp-full': lambda lib, partition: f'{lib}-vendorcompat',
     'libclang_rt.ubsan_standalone-aarch64-android': lambda lib, partition: f'{lib}-v32',
+    'libfmjni': lambda lib, partition: f'prebuilt_{lib}',
 }
 
 module = ExtractUtilsModule(
