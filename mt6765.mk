@@ -124,7 +124,8 @@ PRODUCT_PACKAGES += \
     libstdc++_vendor \
     libcamera_metadata.vendor \
     android.frameworks.sensorservice@1.0.vendor \
-    libpng.vendor
+    libpng.vendor \
+    libinput.vendor
 
 # Control groups and task profiles
 PRODUCT_COPY_FILES += \
