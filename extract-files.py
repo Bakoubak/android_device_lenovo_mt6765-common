@@ -42,41 +42,57 @@ namespace_imports = [
 blob_fixups: blob_fixups_user_type = {
     'lib/libshowlogo.so': blob_fixup()
         .add_needed('libshim_showlogo.so'),
+    
     'lib/libsink.so': blob_fixup()
         .add_needed('libshim_vtservice.so'),
+    
     'lib64/libmtkavenhancements.so': blob_fixup()
         .add_needed('libshim_mtkavenhancements.so'),
+    
     'lib64/extractors/libmtkmkvextractor.so': blob_fixup()
         .add_needed('libshim_extractors.so'),
+    
     'vendor/bin/hw/android.hardware.wifi@1.0-service-lazy-mediatek': blob_fixup()
         .replace_needed('libwifi-hal.so', 'libwifi-hal-mtk.so')
         .add_needed('libcompiler_rt.so'),
+    
     ('vendor/bin/hw/hostapd', 'vendor/bin/hw/wpa_supplicant'): blob_fixup()
         .add_needed('libcompiler_rt.so'),
+    
     'vendor/bin/hw/wpa_supplicant': blob_fixup()
         .replace_needed('libcrypto.so', 'libcrypto-v33.so')
         .replace_needed('libssl.so', 'libssl-v33.so'),
-    'vendor/lib*/libudf.so': blob_fixup()
+    
+    ('vendor/lib/libudf.so', 'vendor/lib64/libudf.so'): blob_fixup()
         .replace_needed('libunwindstack.so', 'libunwindstack-v30.so'),
+    
     ('vendor/lib/libgeofence.so', 'vendor/lib/libmnl.so'): blob_fixup()
         .add_needed('libshim_gps.so'),
-    'vendor/lib*/libmtkcam_stdutils.so': blob_fixup()
+    
+    ('vendor/lib/libmtkcam_stdutils.so', 'vendor/lib64/libmtkcam_stdutils.so'): blob_fixup()
         .replace_needed('libutils.so', 'libutils-v30.so'),
-    'vendor/lib*/libpixelflinger.so': blob_fixup()
+    
+    ('vendor/lib/libpixelflinger.so', 'vendor/lib64/libpixelflinger.so'): blob_fixup()
         .add_needed('libshim_memset.so'),
-    'vendor/lib*/hw/audio.primary.mt6765.so': blob_fixup()
+    
+    ('vendor/lib/hw/audio.primary.mt6765.so', 'vendor/lib64/hw/audio.primary.mt6765.so'): blob_fixup()
         .replace_needed('libmedia_helper.so', 'libmedia_helper-v29.so')
         .replace_needed('libalsautils.so', 'libalsautils-v29.so'),
-    'vendor/lib*/hw/vendor.mediatek.hardware.pq@2.3-impl.so': blob_fixup()
+    
+    ('vendor/lib/hw/vendor.mediatek.hardware.pq@2.3-impl.so', 'vendor/lib64/hw/vendor.mediatek.hardware.pq@2.3-impl.so'): blob_fixup()
         .replace_needed('libutils.so', 'libutils-v30.so'),
-    'vendor/lib*/hw/libSoftGatekeeper.so': blob_fixup()
+    
+    ('vendor/lib/hw/libSoftGatekeeper.so', 'vendor/lib64/hw/libSoftGatekeeper.so'): blob_fixup()
         .replace_needed('libgatekeeper.so', 'libgatekeeper-v29.so'),
-    ('vendor/lib*/libmtkcam_ulog.so', 'vendor/lib64/libcam.feature_utils.so', 'vendor/lib64/libcam.iopipe.so'): blob_fixup()
+    
+    ('vendor/lib/libmtkcam_ulog.so', 'vendor/lib64/libmtkcam_ulog.so', 'vendor/lib64/libcam.feature_utils.so', 'vendor/lib64/libcam.iopipe.so'): blob_fixup()
         .replace_needed('libunwindstack.so', 'libunwindstack-v30.so')
         .replace_needed('libutils.so', 'libutils-v30.so'),
+    
     'vendor/lib/libMtkOmxVdecEx.so': blob_fixup()
         .replace_needed('libui.so', 'libui-v32.so'),
-    ('vendor/lib*/libdlbdsservice.so', 'vendor/lib*/soundfx/libswdap.so'): blob_fixup()
+    
+    ('vendor/lib/libdlbdsservice.so', 'vendor/lib64/libdlbdsservice.so', 'vendor/lib/soundfx/libswdap.so', 'vendor/lib64/soundfx/libswdap.so'): blob_fixup()
         .replace_needed('libstagefright_foundation.so', 'libstagefright_foundation-v33.so'),
 }
 
