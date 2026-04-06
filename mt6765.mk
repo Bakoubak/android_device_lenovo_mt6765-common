@@ -17,6 +17,7 @@ PRODUCT_SOONG_NAMESPACES += \
     device/lenovo/mt6765-common/dolby \
     device/lenovo/mt6765-common/lights \
     device/lenovo/mt6765-common/libshims \
+    device/lenovo/mt6765-common/vndk \
     hardware/lineage/interfaces/power-libperfmgr
 
 # Overlays

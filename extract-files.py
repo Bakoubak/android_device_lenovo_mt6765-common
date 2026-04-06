@@ -36,6 +36,7 @@ namespace_imports = [
     "device/lenovo/mt6765-common/libshims",
     "hardware/lineage/interfaces/power-libperfmgr",
     "vendor/lenovo/amar_row_lte"
+    "device/lenovo/mt6765-common/vndk"
 ]
 
 blob_fixups: blob_fixups_user_type = {
