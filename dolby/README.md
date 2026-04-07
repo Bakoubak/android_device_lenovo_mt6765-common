@@ -1,1 +1,0 @@
-This Dolby implementation is kanged from https://github.com/wodanesdag/android_device_xiaomi_ruby/tree/14.0

@@ -14,7 +14,6 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/pixel \
     hardware/mediatek \
     hardware/mediatek/libmtkperf_client \
-    device/lenovo/mt6765-common/dolby \
     device/lenovo/mt6765-common/lights \
     device/lenovo/mt6765-common/libshims \
     device/lenovo/mt6765-common/vndk \
@@ -93,7 +92,6 @@ PRODUCT_PACKAGES += \
 
 # Dolby
 PRODUCT_PACKAGES += \
-    LenovoDolby \
     libsqlite.vendor
 
 PRODUCT_COPY_FILES += \

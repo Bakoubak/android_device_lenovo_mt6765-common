@@ -31,7 +31,6 @@ namespace_imports = [
     "hardware/google/pixel",
     "hardware/mediatek",
     "hardware/mediatek/libmtkperf_client",
-    "device/lenovo/mt6765-common/dolby",
     "device/lenovo/mt6765-common/lights",
     "device/lenovo/mt6765-common/libshims",
     "hardware/lineage/interfaces/power-libperfmgr",
