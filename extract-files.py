@@ -121,10 +121,10 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('__gnu_Unwind_Find_exidx'),
 
     ('vendor/lib/libwifi-hal-mtk.so', 'vendor/lib64/libwifi-hal-mtk.so'): blob_fixup()
-        .fix_soname('libwifi-hal-mtk.so'),
+        .fix_soname(),
 
     ('vendor/lib/libalsautils-v29.so', 'vendor/lib64/libalsautils-v29.so'): blob_fixup()
-        .fix_soname('libalsautils-v29.so'),
+        .fix_soname(),
 }
 
 lib_fixups: lib_fixups_user_type = {
