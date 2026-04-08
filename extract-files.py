@@ -120,6 +120,11 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('__aeabi_memset')
         .clear_symbol_version('__gnu_Unwind_Find_exidx'),
 
+    'vendor/lib/libthha.so': blob_fixup()
+        .clear_symbol_version('__aeabi_memcpy')
+        .clear_symbol_version('__aeabi_memset')
+        .clear_symbol_version('__gnu_Unwind_Find_exidx'),
+
     ('vendor/lib/libwifi-hal-mtk.so', 'vendor/lib64/libwifi-hal-mtk.so'): blob_fixup()
         .fix_soname(),
 
