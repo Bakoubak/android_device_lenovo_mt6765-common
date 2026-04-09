@@ -794,7 +794,6 @@ vendor/bin/hw/vendor.mediatek.hardware.mms@1.5-service
 vendor/bin/hw/vendor.mediatek.hardware.nvram@1.1-service
 vendor/bin/hw/mtkfusionrild
 vendor/bin/bip
-vendor/bin/em_hidl
 vendor/bin/epdg_wod
 vendor/bin/ccci_fsd
 vendor/bin/ccci_mdinit
@@ -812,7 +811,6 @@ vendor/bin/nvram_daemon
 vendor/bin/stp_dump3
 vendor/bin/volte_imsm_93
 vendor/bin/volte_md_status
-vendor/etc/init/em_hidl_user.rc
 vendor/etc/init/fuelgauged_init.rc
 vendor/etc/init/fuelgauged_nvram_init.rc
 vendor/etc/init/gsm0710muxd.rc
