@@ -137,6 +137,9 @@ blob_fixups: blob_fixups_user_type = {
 
     ('vendor/lib/libalsautils-v29.so', 'vendor/lib64/libalsautils-v29.so'): blob_fixup()
         .fix_soname(),
+
+    'vendor/etc/init/vendor.mediatek.hardware.mtkcodecservice@1.1-service.rc': blob_fixup()
+        .regex_replace('interface vendor.mediatek.hardware.mtkcodecservice@1.1::IMtkCodecService default', ''),
 }
 
 lib_fixups: lib_fixups_user_type = {
