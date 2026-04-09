@@ -52,19 +52,6 @@ cc_library_shared {
 }
 
 cc_library_shared {
-    name: "libshim_showlogo",
-    srcs: ["libshim_showlogo.cpp"],
-    shared_libs: [
-        "libbinder",
-        "libgui",
-        "libutils",
-    ],
-    header_libs: [
-        "libgui_headers",
-    ],
-}
-
-cc_library_shared {
     name: "libshim_vtservice",
     srcs: ["libshim_vtservice.cpp"],
     compile_multilib: "32",

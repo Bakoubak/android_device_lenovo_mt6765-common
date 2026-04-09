@@ -360,13 +360,6 @@ vendor/lib64/vendor.mediatek.hardware.camera.lomoeffect@1.0.so
 vendor/lib64/vendor.mediatek.hardware.camera.postproc@1.0.so
 vendor/lib64/vendor.mediatek.hardware.camera.security@1.0.so
 
-# Charger
-system/bin/kpoc_charger
-system/etc/init/kpoc_charger.rc
-system/lib/libshowlogo.so
-system/lib/libsysenv_system.so
-system/lib64/libsysenv_system.so
-
 # DRM
 vendor/bin/hw/android.hardware.drm@1.2-service.widevine
 vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc
