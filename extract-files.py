@@ -46,7 +46,8 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libshim_vtservice.so'),
     
     'lib64/libmtkavenhancements.so': blob_fixup()
-        .add_needed('libshim_mtkavenhancements.so'),
+        .add_needed('libshim_mtkavenhancements.so')
+        .replace_needed('libclang_rt.ubsan_standalone-aarch64-android.so', 'libclang_rt.ubsan_standalone-aarch64-android-v32.so'),
     
     'lib64/extractors/libmtkmkvextractor.so': blob_fixup()
         .add_needed('libshim_extractors.so'),
