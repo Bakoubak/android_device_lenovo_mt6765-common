@@ -97,6 +97,9 @@ blob_fixups: blob_fixups_user_type = {
 
     ('vendor/lib/libutinterface_custom_md.so', 'vendor/lib64/libutinterface_custom_md.so'): blob_fixup()
         .add_needed('libutinterface_md.so'),
+
+    ('vendor/lib/libutinterface_md.so', 'vendor/lib64/libutinterface_md.so'): blob_fixup()
+        .remove_needed('libutinterface_custom_md.so'),
     
     'vendor/lib/libvcodec_oal.so': blob_fixup()
         .clear_symbol_version('__aeabi_memcpy')
