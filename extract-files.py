@@ -93,6 +93,9 @@ blob_fixups: blob_fixups_user_type = {
     
     ('vendor/lib/libdlbdsservice.so', 'vendor/lib64/libdlbdsservice.so', 'vendor/lib/soundfx/libswdap.so', 'vendor/lib64/soundfx/libswdap.so'): blob_fixup()
         .replace_needed('libstagefright_foundation.so', 'libstagefright_foundation-v33.so'),
+
+    ('vendor/lib/libutinterface_custom_md.so', 'vendor/lib64/libutinterface_custom_md.so'): blob_fixup()
+        .add_needed('libutinterface_md.so'),
     
     'vendor/lib/libvcodec_oal.so': blob_fixup()
         .clear_symbol_version('__aeabi_memcpy')
