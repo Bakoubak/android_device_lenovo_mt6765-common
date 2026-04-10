@@ -350,7 +350,8 @@ PRODUCT_PACKAGES += \
     libshim_gps \
     libshim_memset \
     libshim_mtkavenhancements \
-    libshim_vtservice
+    libshim_vtservice \
+    libshim_beanpod
 
 # Speed profile services and wifi-service to reduce RAM and storage
 PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
