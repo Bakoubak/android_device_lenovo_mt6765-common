@@ -100,6 +100,9 @@ blob_fixups: blob_fixups_user_type = {
 
     ('vendor/lib/libutinterface_md.so', 'vendor/lib64/libutinterface_md.so'): blob_fixup()
         .remove_needed('libutinterface_custom_md.so'),
+
+    'vendor/bin/hw/android.hardware.keymaster@4.0-service.beanpod': blob_fixup()
+        .replace_needed('libkeymaster_messages.so', 'libkeymaster_messages-v29.so'),
     
     'vendor/lib/libvcodec_oal.so': blob_fixup()
         .clear_symbol_version('__aeabi_memcpy')
