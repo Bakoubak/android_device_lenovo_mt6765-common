@@ -185,7 +185,9 @@ on post-fs
 
     rm /cache/logcat.${ro.hardware}.txt
     start logcat_cache
-    
+    rm /cache/dmesg.${ro.hardware}.txt
+    start dmesg_cache
+
 on post-fs-data
     write /proc/bootprof "INIT:post-fs-data"
 
@@ -1107,3 +1109,9 @@ service logcat_cache /system/bin/logcat -b all -f /cache/logcat.${ro.hardware}.t
     user root
     group system
     disabled 
+
+service dmesg_cache /system/bin/sh -c "/system/bin/dmesg -wT > /cache/dmesg.${ro.hardware}.txt"
+    class core
+    user root
+    group root
+    oneshot
