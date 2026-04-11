@@ -1,0 +1,7 @@
+allow mtk_hal_power debugfs:file { open read write };
+allow mtk_hal_power debugfs_fb:dir search;
+allow mtk_hal_power debugfs_fb:file { open read write };
+allow mtk_hal_power debugfs_fpsgo:dir search;
+allow mtk_hal_power debugfs_fpsgo:file { getattr open read write };
+allow mtk_hal_power default_android_hwservice:hwservice_manager { add find };
+allow mtk_hal_power vendor_default_prop:property_service set;

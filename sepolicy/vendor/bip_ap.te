@@ -1,0 +1,1 @@
+allow bip net_dns_prop:file { getattr open read };

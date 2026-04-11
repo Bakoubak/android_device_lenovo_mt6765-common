@@ -1,0 +1,2 @@
+allow mtk_hal_camera default_android_hwservice:hwservice_manager find;
+allow mtk_hal_camera default_prop:file { getattr open read };

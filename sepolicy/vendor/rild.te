@@ -1,0 +1,1 @@
+allow rild proc_aed:dir search;

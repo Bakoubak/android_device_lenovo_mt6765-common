@@ -1,0 +1,1 @@
+allow mtk_hal_wifi vendor_mtk_wifi_hal_prop:property_service set;

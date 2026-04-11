@@ -1,0 +1,4 @@
+/(vendor|system/vendor)/bin/hw/android\.hardware\.gnss@2\.0-service-mediatek u:object_r:mtk_hal_gnss_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.light-service\.lenovo u:object_r:mtk_hal_light_exec:s0
+
+/dev/tee0 u:object_r:tee_device:s0

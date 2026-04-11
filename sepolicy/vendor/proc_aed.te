@@ -1,0 +1,1 @@
+allow proc_aed proc:filesystem associate;

@@ -1,0 +1,5 @@
+allow mediacodec default_prop:file { getattr open read };
+
+allow mediacodec dalvik_dynamic_config_prop:property_service set;
+allow mediacodec default_android_hwservice:hwservice_manager find;
+allow mediacodec proc_ppm:dir search;

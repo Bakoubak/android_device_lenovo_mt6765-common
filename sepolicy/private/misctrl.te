@@ -1,0 +1,3 @@
+# type para_block_device, dev_type;
+# allow misctrl para_block_device:blk_file { getattr open read write };
+allow misctrl sysfs_dt_firmware_android:file { getattr open read };

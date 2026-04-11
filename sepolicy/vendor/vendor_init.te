@@ -1,0 +1,22 @@
+# Date: 2025/2/19
+# Purpose: Allow vendor_init to modify props
+allow vendor_init config_prop:property_service set;
+allow vendor_init default_prop:property_service set;
+
+# Date: 2025/2/19
+# Purpose: Allow vendor_init to write and open in /proc
+allow vendor_init proc_aed:file { write open };
+
+# Date: 2025/2/19
+# Purpose: Allow vendor_init to search in cache
+allow vendor_init cache_file:dir search;
+
+allow vendor_init build_bootimage_prop:property_service set;
+allow vendor_init build_prop:property_service set;
+allow vendor_init cache_file:dir { remove_name write };
+allow vendor_init cache_file:file unlink;
+allow vendor_init device:file { create write };
+allow vendor_init proc:file write;
+allow vendor_init radio_prop:property_service set;
+allow vendor_init vts_status_prop:file read;
+allow vendor_init wmtWifi_device:chr_file { open write };

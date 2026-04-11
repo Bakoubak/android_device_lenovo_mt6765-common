@@ -1,0 +1,7 @@
+allow init hal_gnss_hwservice:hwservice_manager { add find };
+allow init hidl_base_hwservice:hwservice_manager add;
+allow init hwservicemanager:binder { call transfer };
+allow init same_process_hal_file:file execute;
+allow init system_server:binder { call transfer };
+allow init vendor_file:file { execute execute_no_trans };
+allow init vndbinder_device:chr_file { ioctl open read write };
