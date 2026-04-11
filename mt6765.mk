@@ -97,8 +97,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     prebuilts/runtime/mainline/i18n/sdk/android/arm64/lib/libandroidicu.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libandroidicu.so
 
-TARGET_EXCLUDES_AUDIOFX := true
-
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth.audio-impl \
