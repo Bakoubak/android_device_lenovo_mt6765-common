@@ -1,4 +1,6 @@
 allow logpersist cache_file:dir { add_name open read write search };
 allow logpersist cache_file:file { append create getattr open };
 allow logpersist self:capability dac_override;
-allow toolbox cache_file:file { write open create append getattr };
+allow toolbox cache_file:file { write open create append getattr ioctl };
+allow toolbox kmsg_device:chr_file { read open };
+allow toolbox kernel:system syslog_read;
