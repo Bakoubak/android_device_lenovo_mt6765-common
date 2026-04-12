@@ -88,7 +88,9 @@ PRODUCT_PACKAGES += \
     libcrypto-v33 \
     libstagefright_foundation-v33 \
     android.hardware.common-V2-ndk_platform \
-    android.hardware.graphics.common-V2-ndk_platform
+    android.hardware.graphics.common-V2-ndk_platform \
+    libhidlbase-v34 \
+    libprocessgroup-v34
 
 # Dolby
 PRODUCT_PACKAGES += \

@@ -246,3 +246,39 @@ cc_prebuilt_library_shared {
     compile_multilib: "both",
     check_elf_files: false,
 }
+
+cc_prebuilt_library_shared {
+    name: "libhidlbase-v34",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["prebuilts/v34/arm/libhidlbase-v34.so"],
+        },
+        android_arm64: {
+            srcs: ["prebuilts/v34/arm64/libhidlbase-v34.so"],
+        },
+    },
+    compile_multilib: "both",
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "libprocessgroup-v34",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["prebuilts/v34/arm/libprocessgroup-v34.so"],
+        },
+        android_arm64: {
+            srcs: ["prebuilts/v34/arm64/libprocessgroup-v34.so"],
+        },
+    },
+    compile_multilib: "both",
+    check_elf_files: false,
+}

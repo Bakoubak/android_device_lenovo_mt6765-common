@@ -58,6 +58,7 @@ blob_fixups: blob_fixups_user_type = {
     
     ('vendor/bin/hw/hostapd', 'vendor/bin/hw/wpa_supplicant'): blob_fixup()
         .add_needed('libcompiler_rt.so'),
+        .add_needed('libmfllcore.so'),
     
     'vendor/bin/hw/wpa_supplicant': blob_fixup()
         .replace_needed('libcrypto.so', 'libcrypto-v33.so')
@@ -103,6 +104,9 @@ blob_fixups: blob_fixups_user_type = {
 
     'vendor/bin/hw/android.hardware.keymaster@4.0-service.beanpod': blob_fixup()
         .replace_needed('libkeymaster_messages.so', 'libkeymaster_messages-v29.so'),
+
+    'vendor/bin/hw/vendor.microtrust.hardware.capi@2.0-service': blob_fixup()
+        .replace_needed('libhidlbase.so', 'libhidlbase-v34.so'), 
     
     'vendor/lib/libvcodec_oal.so': blob_fixup()
         .clear_symbol_version('__aeabi_memcpy')
