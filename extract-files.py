@@ -57,7 +57,7 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libcompiler_rt.so'),
     
     ('vendor/bin/hw/hostapd', 'vendor/bin/hw/wpa_supplicant'): blob_fixup()
-        .add_needed('libcompiler_rt.so'),
+        .add_needed('libcompiler_rt.so')
         .add_needed('libmfllcore.so'),
     
     'vendor/bin/hw/wpa_supplicant': blob_fixup()
