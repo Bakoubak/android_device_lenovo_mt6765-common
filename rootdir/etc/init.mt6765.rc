@@ -1118,3 +1118,4 @@ service dmesg_cache /system/bin/sh -c "/system/bin/dmesg -wT > /cache/dmesg.${ro
     user root
     group root
     oneshot
+    seclabel u:r:su:s0
