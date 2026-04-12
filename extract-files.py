@@ -57,12 +57,12 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libcompiler_rt.so'),
     
     ('vendor/bin/hw/hostapd', 'vendor/bin/hw/wpa_supplicant'): blob_fixup()
-        .add_needed('libcompiler_rt.so')
-        .add_needed('libmfllcore.so'),
+        .add_needed('libcompiler_rt.so'),
     
     'vendor/bin/hw/wpa_supplicant': blob_fixup()
         .replace_needed('libcrypto.so', 'libcrypto-v33.so')
-        .replace_needed('libssl.so', 'libssl-v33.so'),
+        .replace_needed('libssl.so', 'libssl-v33.so')
+        .add_needed('libmfllcore.so'),
     
     ('vendor/lib/libudf.so', 'vendor/lib64/libudf.so'): blob_fixup()
         .replace_needed('libunwindstack.so', 'libunwindstack-v30.so'),
