@@ -1,0 +1,11 @@
+type hal_dms_exec, exec_type, file_type, vendor_file_type;
+type hal_dms, domain;
+init_daemon_domain(hal_dms)
+
+allow hal_dms hwservicemanager_prop:file { read open getattr };
+allow hal_dms default_android_hwservice:hwservice_manager { add find };
+allow hal_dms hal_audio_default:binder call;
+allow hal_dms hidl_base_hwservice:hwservice_manager add;
+allow hal_dms hwservicemanager:binder { call transfer };
+allow hal_dms vendor_data_file:file { getattr lock open read write create ioctl setattr unlink };
+allow hal_dms vendor_data_file:dir { add_name write open read remove_name };
