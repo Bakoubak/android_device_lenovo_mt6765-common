@@ -76,7 +76,6 @@ Only the three quirks included above are recognized at this point:
     2012/07/13 config for MTK OMX Media Codecs, created by Morris Yang (mtk03147)
 -->
 
-<?xml version="1.0" encoding="utf-8" ?>
 <Included>
     <Decoders>
         <MediaCodec name="OMX.MTK.VIDEO.DECODER.MPEG2" type="video/mpeg2" >
