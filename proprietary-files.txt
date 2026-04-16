@@ -322,7 +322,7 @@ vendor/lib64/libmtkcam_pipeline.so
 vendor/lib64/libmtkcam_pipelinemodel.so
 vendor/lib64/libmtkcam_pipelinemodel_adapter.so
 vendor/lib64/libmtkcam_pipelinemodel_capture.so
-vendor/lib64/libmtkcam_pipelinemodel_session.so
+vendor/lib64/libmtkcam_pipelinemodel_session.so|550e76f183c44a1ba1e5632d2c1d9faa60035878
 vendor/lib64/libmtkcam_pipelinemodel_utils.so
 vendor/lib64/libmtkcam_pipelinemodel_zsl.so
 vendor/lib64/libmtkcam_pipelinepolicy-security.so
