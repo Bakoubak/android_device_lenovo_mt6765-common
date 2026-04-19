@@ -54,3 +54,6 @@ ro.incremental.enable=yes
 
 # DT2W
 persist.vendor.gesture.dclick=1
+
+# Logs and debug
+persist.vendor.debug.logs=0

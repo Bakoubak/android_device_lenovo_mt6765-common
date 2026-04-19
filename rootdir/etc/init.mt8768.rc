@@ -183,6 +183,7 @@ on post-fs
     chown system system /mnt/vendor/protect_s
     chmod 0770 /mnt/vendor/protect_s
 
+on post-fs && property:persist.vendor.debug.logs=1
     rm /cache/logcat.${ro.hardware}.txt
     start logcat_cache
     rm /cache/dmesg.${ro.hardware}.txt
@@ -1115,4 +1116,5 @@ service dmesg_cache /system/bin/sh -c "/system/bin/dmesg -wT > /cache/dmesg.${ro
     user root
     group root
     oneshot
+    disabled
     seclabel u:r:su:s0
