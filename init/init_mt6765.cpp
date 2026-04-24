@@ -61,24 +61,22 @@ void set_go_default_props() {
     sysinfo(&sys);
 
     if (sys.totalram <= 3072ull * 1024 * 1024) {
-        // Set lowram options
         property_override("ro.config.low_ram", "true");
-        property_override("ro.lmk.critical_upgrade", "true");
-        property_override("ro.lmk.upgrade_pressure", "40");
-        property_override("ro.lmk.downgrade_pressure", "30");
-        property_override("ro.lmk.thrashing_limit_decay", "50");
-        property_override("ro.lmk.use_psi", "true");
-        property_override("ro.lmk.kill_heaviest_task", "true");
-        property_override("ro.lmk.use_minfree_levels", "false");
         property_override("ro.statsd.enable", "true");
 
-        // set threshold to filter unused apps
-        property_override("pm.dexopt.downgrade_after_inactive_days", "10");
+        property_override("ro.lmk.use_psi", "false");
+        property_override("ro.lmk.use_minfree_levels", "true");
 
-        // Default heap sizes. Allow up to 256m for large heaps to make sure a single app
-        // doesn't take all of the RAM.
-        property_override("dalvik.vm.heapgrowthlimit", "128m");
-        property_override("dalvik.vm.heapsize", "256m");
+        property_override("ro.lmk.kill_heaviest_task", "false");
+
+        property_override("ro.lmk.swap_util_max", "85");
+        property_override("ro.lmk.swap_free_low_percentage", "15");
+
+        property_override("ro.lmk.thrashing_limit", "80");
+        property_override("ro.lmk.thrashing_limit_decay", "20");
+
+        property_override("dalvik.vm.heapgrowthlimit", "256m");
+        property_override("dalvik.vm.heapsize", "512m");
     }
 }
 
