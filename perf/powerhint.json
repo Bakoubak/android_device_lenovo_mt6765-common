@@ -112,7 +112,7 @@
     },
     {
       "Name": "GPUBlockBoost",
-      "Path": "/sys/kernel/ged/hal/gpu_boost_level",
+      "Path": "/sys/kernel/debug/ged/hal/gpu_boost_level",
       "Values": [
         "101",
         "50",
@@ -134,7 +134,7 @@
     },
     {
       "Name": "GPUDVFSMargin",
-      "Path": "/sys/kernel/ged/hal/dvfs_margin_value",
+      "Path": "/sys/kernel/debug/ged/hal/dvfs_margin_value",
       "Values": [
         "100",
         "75",
@@ -208,7 +208,7 @@
     },
     {
       "Name": "UclampMin",
-      "Path": "/proc/perfmgr/boost_ctrl/eas_ctrl/perf_uclamp_min",
+      "Path": "/proc/perfmgr/boost_ctrl/eas_ctrl/current_uclamp_min",
       "Values": [
         "100",
         "75",
@@ -220,7 +220,7 @@
     },
     {
       "Name": "BGUclampMin",
-      "Path": "/proc/perfmgr/boost_ctrl/eas_ctrl/perf_bg_uclamp_min",
+      "Path": "/proc/perfmgr/boost_ctrl/eas_ctrl/current_bg_uclamp_min",
       "Values": [
         "100",
         "75",
@@ -232,7 +232,7 @@
     },
     {
       "Name": "FGUclampMin",
-      "Path": "/proc/perfmgr/boost_ctrl/eas_ctrl/perf_fg_uclamp_min",
+      "Path": "/proc/perfmgr/boost_ctrl/eas_ctrl/current_fg_uclamp_min",
       "Values": [
         "100",
         "75",
@@ -244,7 +244,7 @@
     },
     {
       "Name": "TAUclampMin",
-      "Path": "/proc/perfmgr/boost_ctrl/eas_ctrl/perf_ta_uclamp_min",
+      "Path": "/proc/perfmgr/boost_ctrl/eas_ctrl/current_ta_uclamp_min",
       "Values": [
         "100",
         "75",
@@ -256,7 +256,7 @@
     },
     {
       "Name": "FBTBoostTA",
-      "Path": "/sys/kernel/fpsgo/fbt/boost_ta",
+      "Path": "/sys/kernel/debug/fpsgo/fbt/boost_ta",
       "Values": [
         "0",
         "1"
@@ -266,7 +266,7 @@
     },
     {
       "Name": "SchedBoost",
-      "Path": "/proc/perfmgr/boost_ctrl/eas_ctrl/sched_boost",
+      "Path": "/sys/devices/system/cpu/sched/sched_boost",
       "Values": [
         "1",
         "0"
