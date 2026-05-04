@@ -69,14 +69,16 @@ void set_go_default_props() {
 
         property_override("ro.lmk.kill_heaviest_task", "false");
 
-        property_override("ro.lmk.swap_util_max", "85");
-        property_override("ro.lmk.swap_free_low_percentage", "15");
+        property_override("ro.lmk.swap_util_max", "70");
+        property_override("ro.lmk.swap_free_low_percentage", "25");
+        property_override("ro.lmk.thrashing_limit", "90");
+        property_override("ro.lmk.thrashing_limit_decay", "10");
 
-        property_override("ro.lmk.thrashing_limit", "80");
-        property_override("ro.lmk.thrashing_limit_decay", "20");
-
-        property_override("dalvik.vm.heapgrowthlimit", "256m");
+        property_override("dalvik.vm.heapgrowthlimit", "288m");
         property_override("dalvik.vm.heapsize", "512m");
+        property_override("dalvik.vm.heapstartsize", "16m");
+
+        property_override("ro.zygote_max_proc_count", "64");
     }
 }
 
