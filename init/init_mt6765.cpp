@@ -75,8 +75,34 @@ void set_go_default_props() {
         property_override("ro.lmk.thrashing_limit", "80");
         property_override("ro.lmk.thrashing_limit_decay", "20");
 
-        property_override("dalvik.vm.heapgrowthlimit", "256m");
-        property_override("dalvik.vm.heapsize", "512m");
+        property_override("ro.config.low_ram", "true");
+        property_override("ro.config.low_ram2g", "true");
+
+        property_override("ro.launcher.blur.appLaunch", "0");
+        property_override("ro.surface_flinger.supports_background_blur", "0");
+        property_override("ro.sf.blurs_are_expensive", "1");
+        property_override("persist.sys.sf.disable_blurs", "1");
+        property_override("ro.sf.blurs_are_caro", "1");
+
+        property_override("fw.max_users", "1");
+        property_override("fw.power_user_switcher", "0");
+        property_override("fw.show_guest_on_lockscreen", "0");
+        property_override("fw.show_hidden_users", "0");
+        property_override("fw.show_multiuserui", "0");
+        property_override("fw.show_user_switcher_on_lockscreen", "0");
+        property_override("fw.user_creation_disabled", "1");
+
+        property_override("ro.HOME_APP_ADJ", "0");
+
+        property_override("dalvik.vm.heapstartsize", "8m");
+        property_override("dalvik.vm.heapgrowthlimit", "64m");
+        property_override("dalvik.vm.heapsize", "128m");
+        property_override("dalvik.vm.heaptargetutilization", "0.75");
+        property_override("dalvik.vm.heapminfree", "2m");
+        property_override("dalvik.vm.heapmaxfree", "8m");
+
+        property_override("ro.config.small_battery", "true");
+
     }
 }
 
