@@ -22,7 +22,8 @@ PRODUCT_SOONG_NAMESPACES += \
 # Overlays
 PRODUCT_PACKAGES += \
     FrameworksResOverlayAmar \
-    SettingsProviderOverlayAmar
+    SettingsProviderOverlayAmar \
+    WifiOverlayAmar
 
 # Lineage Overlays
 DEVICE_PACKAGE_OVERLAYS += \
