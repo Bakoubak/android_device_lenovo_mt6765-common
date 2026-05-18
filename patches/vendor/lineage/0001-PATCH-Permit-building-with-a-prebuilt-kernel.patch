@@ -1,0 +1,45 @@
+From f06d4e62cd9657c62c0956ec0f3e9b18d6ca2a29 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Ana=C3=ABl?= <60509176+Bakoubak@users.noreply.github.com>
+Date: Mon, 18 May 2026 17:35:16 +0200
+Subject: [PATCH] [PATCH]: Permit building with a prebuilt kernel
+
+---
+ build/soong/Android.bp | 22 +++++++++++-----------
+ 1 file changed, 11 insertions(+), 11 deletions(-)
+
+diff --git a/build/soong/Android.bp b/build/soong/Android.bp
+index 295a6af8..66396793 100644
+--- a/build/soong/Android.bp
++++ b/build/soong/Android.bp
+@@ -22,17 +22,17 @@ lineage_generator {
+     name: "generated_kernel_includes",
+ 
+     // The headers make command
+-    cmd: "set -e; " +
+-         "if [ -n \"$(TARGET_KERNEL_PLATFORM_TARGET)\" ]; then " +
+-         "    pushd $(KERNEL_PATH); " +
+-         "    ./tools/bazel --output_user_root=$(KERNEL_BUILD_OUT_PREFIX)$(genDir)/bazel-out --output_root=$(KERNEL_BUILD_OUT_PREFIX)$(genDir)/bazel-out run --experimental_convenience_symlinks=ignore --cpu=$(KERNEL_ARCH) //$(TARGET_KERNEL_SOURCE):$(TARGET_KERNEL_PLATFORM_TARGET)_uapi_headers_dist -- --destdir=$(KERNEL_BUILD_OUT_PREFIX)$(genDir); " +
+-         "    popd; " +
+-         "    gzip -d $(KERNEL_BUILD_OUT_PREFIX)$(genDir)/kernel-uapi-headers.tar.gz; " +
+-         "    tar -xf $(KERNEL_BUILD_OUT_PREFIX)$(genDir)/kernel-uapi-headers.tar -C $(KERNEL_BUILD_OUT_PREFIX)$(genDir); " +
+-         "else " +
+-         "    $(PATH_OVERRIDE_SOONG) $(KERNEL_MAKE_CMD) $(KERNEL_MAKE_FLAGS) -C $(TARGET_KERNEL_SOURCE) O=$(KERNEL_BUILD_OUT_PREFIX)$(genDir) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) headers_install; " +
+-         "fi; " +
+-         "vendor/lineage/tools/clean_headers.sh $(KERNEL_BUILD_OUT_PREFIX)$(genDir)",
++    // cmd: "set -e; " +
++    //     "if [ -n \"$(TARGET_KERNEL_PLATFORM_TARGET)\" ]; then " +
++    //     "    pushd $(KERNEL_PATH); " +
++    //     "    ./tools/bazel --output_user_root=$(KERNEL_BUILD_OUT_PREFIX)$(genDir)/bazel-out --output_root=$(KERNEL_BUILD_OUT_PREFIX)$(genDir)/bazel-out run --experimental_convenience_symlinks=ignore --cpu=$(KERNEL_ARCH) //$(TARGET_KERNEL_SOURCE):$(TARGET_KERNEL_PLATFORM_TARGET)_uapi_headers_dist -- --destdir=$(KERNEL_BUILD_OUT_PREFIX)$(genDir); " +
++    //     "    popd; " +
++    //     "    gzip -d $(KERNEL_BUILD_OUT_PREFIX)$(genDir)/kernel-uapi-headers.tar.gz; " +
++    //     "    tar -xf $(KERNEL_BUILD_OUT_PREFIX)$(genDir)/kernel-uapi-headers.tar -C $(KERNEL_BUILD_OUT_PREFIX)$(genDir); " +
++    //     "else " +
++    //     "    $(PATH_OVERRIDE_SOONG) $(KERNEL_MAKE_CMD) $(KERNEL_MAKE_FLAGS) -C $(TARGET_KERNEL_SOURCE) O=$(KERNEL_BUILD_OUT_PREFIX)$(genDir) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) headers_install; " +
++    //     "fi; " +
++    //     "vendor/lineage/tools/clean_headers.sh $(KERNEL_BUILD_OUT_PREFIX)$(genDir)",
+ 
+     // Directories that can be imported by a cc_* module generated_headers property
+     export_include_dirs: [
+-- 
+2.54.0
+
