@@ -650,7 +650,10 @@ on post-fs-data
     write /dev/memcg/memory.swappiness 120
     write /dev/memcg/apps/memory.swappiness 130
     write /dev/memcg/system/memory.swappiness 100
-    write /proc/sys/vm/swappiness 110
+    write /proc/sys/vm/swappiness 130
+    write /proc/sys/vm/min_free_kbytes 49152
+    write /proc/sys/vm/extra_free_kbytes 32768
+    write /proc/sys/vm/vfs_cache_pressure 80
 
 on post-fs-data && property:ro.crypto.type=block
     mkdir /data/unencrypted
