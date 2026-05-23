@@ -1,1 +1,1 @@
-allow hal_drm_widevine tee_device:chr_file { read write open ioctl };
+allow hal_drm_widevine mitee_client_device:chr_file { read write open ioctl };
