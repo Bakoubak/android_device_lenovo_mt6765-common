@@ -4,6 +4,52 @@
 
 using namespace android;
 
+typedef void (*legacy_callback_t)(int event, void* user, void* info);
+
+class ShimLegacyCallbackWrapper : public android::AudioTrack::IAudioTrackCallback {
+private:
+    legacy_callback_t mCallback;
+    void* mData;
+public:
+    ShimLegacyCallbackWrapper(legacy_callback_t callback, void* user)
+        : mCallback(callback), mData(user) {}
+
+    size_t onMoreData(const android::AudioTrack::Buffer& buffer) override {
+        android::AudioTrack::Buffer copy = buffer;
+        mCallback(android::AudioTrack::EVENT_MORE_DATA, mData, static_cast<void*>(&copy));
+        return copy.size();
+    }
+    void onUnderrun() override {
+        mCallback(android::AudioTrack::EVENT_UNDERRUN, mData, nullptr);
+    }
+    void onLoopEnd(int32_t loopsRemaining) override {
+        mCallback(android::AudioTrack::EVENT_LOOP_END, mData, &loopsRemaining);
+    }
+    void onMarker(uint32_t markerPosition) override {
+        mCallback(android::AudioTrack::EVENT_MARKER, mData, &markerPosition);
+    }
+    void onNewPos(uint32_t newPos) override {
+        mCallback(android::AudioTrack::EVENT_NEW_POS, mData, &newPos);
+    }
+    void onBufferEnd() override {
+        mCallback(android::AudioTrack::EVENT_BUFFER_END, mData, nullptr);
+    }
+    void onNewIAudioTrack() override {
+        mCallback(android::AudioTrack::EVENT_NEW_IAUDIOTRACK, mData, nullptr);
+    }
+    void onStreamEnd() override {
+        mCallback(android::AudioTrack::EVENT_STREAM_END, mData, nullptr);
+    }
+    size_t onCanWriteMoreData(const android::AudioTrack::Buffer& buffer) override {
+        android::AudioTrack::Buffer copy = buffer;
+        mCallback(android::AudioTrack::EVENT_CAN_WRITE_MORE_DATA, mData, static_cast<void*>(&copy));
+        return copy.size();
+    }
+};
+
+static std::map<void*, sp<ShimLegacyCallbackWrapper>> gCallbackLockMap;
+static std::mutex gCallbackLockMutex;
+
 extern "C" {
     void _ZN7android10AudioTrackC1E19audio_stream_type_tj14audio_format_t20audio_channel_mask_tj20audio_output_flags_tRKNS_2wpINS0_19IAudioTrackCallbackEEEi15audio_session_tNS0_13transfer_typeEPK20audio_offload_info_tRKNS_7content22AttributionSourceStateEPK18audio_attributes_tbfi(
             void* thisptr,
@@ -13,7 +59,7 @@ extern "C" {
             audio_channel_mask_t channelMask,
             size_t frameCount,
             audio_output_flags_t flags,
-            android::AudioTrack::legacy_callback_t cbf,
+            const wp<android::AudioTrack::IAudioTrackCallback>& callbackWeak,
             void* user,
             int32_t notificationFrames,
             audio_session_t sessionId,
@@ -33,7 +79,7 @@ extern "C" {
             audio_channel_mask_t channelMask,
             size_t frameCount,
             audio_output_flags_t flags,
-            android::AudioTrack::legacy_callback_t cbf,
+            legacy_callback_t cbf,
             void* user,
             int32_t notificationFrames,
             audio_session_t sessionId,
@@ -45,11 +91,25 @@ extern "C" {
             bool doNotReconnect,
             float maxRequiredSpeed,
             audio_port_handle_t selectedDeviceId) {
-        AttributionSourceState* attributionSource = new AttributionSourceState();
-        attributionSource->uid = uid;
-        attributionSource->pid = pid;
+
+	android::content::pm::AttributionSourceState attributionSource;
+        attributionSource.uid = uid;
+        attributionSource.pid = pid;
+        attributionSource.token = sp<BBinder>::make();
+
+	sp<ShimLegacyCallbackWrapper> modernCallback = nullptr;
+        if (cbf) {
+            modernCallback = sp<ShimLegacyCallbackWrapper>::make(cbf, user);
+            
+            // Verrouiller et sauvegarder le sp<> pour empêcher sa destruction automatique
+            std::lock_guard<std::mutex> lock(gCallbackLockMutex);
+            gCallbackLockMap[thisptr] = modernCallback;
+        }
+
+	android::wp<android::AudioTrack::IAudioTrackCallback> callbackWeak(modernCallback);
+
         _ZN7android10AudioTrackC1E19audio_stream_type_tj14audio_format_t20audio_channel_mask_tj20audio_output_flags_tRKNS_2wpINS0_19IAudioTrackCallbackEEEi15audio_session_tNS0_13transfer_typeEPK20audio_offload_info_tRKNS_7content22AttributionSourceStateEPK18audio_attributes_tbfi(
-                            thisptr, streamType, sampleRate, format, channelMask, frameCount, flags, cbf,
+                            thisptr, streamType, sampleRate, format, channelMask, frameCount, flags, callbackWeak,
                             user, notificationFrames, sessionId, transferType, offloadInfo,
                             *attributionSource, pAttributes,
                             doNotReconnect, maxRequiredSpeed, selectedDeviceId);
@@ -76,4 +136,5 @@ extern "C" {
     void _ZN7android10MediaMuxerC1EiNS0_12OutputFormatE(void* thisptr, int fd, android::MediaMuxer::OutputFormat format) {
             _ZN7android10MediaMuxerC1EiNS_14MediaMuxerBase12OutputFormatE(thisptr, fd, format);
     }
+    gCallbackLockMap.erase(thisptr);
 }
