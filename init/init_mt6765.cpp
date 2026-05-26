@@ -64,7 +64,7 @@ void set_go_default_props() {
         property_override("ro.config.low_ram", "true");
 
         property_override("ro.lmk.use_psi", "true");
-        property_override("ro.lmk.use_minfree_levels", "true");
+        property_override("ro.lmk.use_minfree_levels", "false");
 
         property_override("ro.lmk.kill_heaviest_task", "false");
 
