@@ -62,18 +62,20 @@ void set_go_default_props() {
 
     if (sys.totalram <= 3072ull * 1024 * 1024) {
         property_override("ro.config.low_ram", "true");
+        property_override("ro.statsd.enable", "true");
 
-        property_override("ro.lmk.use_psi", "true");
-        property_override("ro.lmk.use_minfree_levels", "false");
+        property_override("ro.lmk.use_psi", "false");
+        property_override("ro.lmk.use_minfree_levels", "true");
 
         property_override("ro.lmk.kill_heaviest_task", "false");
 
-        property_override("ro.lmk.swap_util_max", "80");
+        property_override("ro.lmk.swap_util_max", "85");
         property_override("ro.lmk.swap_free_low_percentage", "15");
 
-        property_override("ro.lmk.thrashing_limit", "50");
-        property_override("ro.lmk.thrashing_limit_decay", "25");
+        property_override("ro.lmk.thrashing_limit", "80");
+        property_override("ro.lmk.thrashing_limit_decay", "20");
 
+        property_override("ro.config.low_ram", "true");
         property_override("ro.config.low_ram2g", "true");
 
         property_override("ro.launcher.blur.appLaunch", "0");
@@ -93,10 +95,10 @@ void set_go_default_props() {
         property_override("ro.HOME_APP_ADJ", "0");
 
         property_override("dalvik.vm.heapstartsize", "8m");
-        property_override("dalvik.vm.heapgrowthlimit", "128m");
-        property_override("dalvik.vm.heapsize", "192m");
+        property_override("dalvik.vm.heapgrowthlimit", "64m");
+        property_override("dalvik.vm.heapsize", "128m");
         property_override("dalvik.vm.heaptargetutilization", "0.75");
-        property_override("dalvik.vm.heapminfree", "1m");
+        property_override("dalvik.vm.heapminfree", "2m");
         property_override("dalvik.vm.heapmaxfree", "8m");
 
         property_override("ro.config.small_battery", "true");
