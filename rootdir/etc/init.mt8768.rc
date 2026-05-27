@@ -1095,7 +1095,6 @@ on property:ro.boot.radio.type=wifi && property:sys.boot_completed=1
     stop ril-daemon
     stop vendor.ril-daemon
     stop vendor.radio-hal-1-4
-    setprop ctl.stop android.hardware.radio@1.4::IRadio/slot1
 
     restart vendor.audio-hal-2-0
 

@@ -63,7 +63,7 @@ void check_variant_and_set_props() {
         android::base::SetProperty("ro.boot.radio.type", "wifi");
         
         android::base::SetProperty("ro.radio.noril", "yes");
-        android::base::SetProperty("ro.carrier", "wifi-only");
+	android::base::SetProperty("vendor.ril.mtk", "0");
     }
 }
 
