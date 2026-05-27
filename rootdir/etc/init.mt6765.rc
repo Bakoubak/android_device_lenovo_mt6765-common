@@ -1086,6 +1086,22 @@ on property:persist.vendor.mediatek.fg.log.enable=1
     write /sys/bus/platform/devices/battery/FG_daemon_log_level 7
     write /proc/sys/kernel/printk 8
 
+on property:ro.boot.radio.type=wifi && on property:sys.boot_completed=1
+    stop ccci_mdinit
+    stop ccci3_mdinit
+
+    stop vendor.ccci_fsd
+    stop vendor.ccci3_fsd
+
+    stop vendor.ccci_rpcd
+
+    stop ril-daemon
+    stop vendor.ril-daemon
+    stop vendor.radio-hal-1-4
+    setprop ctl.stop android.hardware.radio@1.4::IRadio/slot1
+
+    restart vendor.audio-hal-2-0
+
 # add meta_tst for ATM
 service meta_tst /vendor/bin/meta_tst
     class main
@@ -1108,6 +1124,8 @@ on property:sys.boot_completed=1 && property:ro.boot.atm=enable
     start meta_tst
     start loghidlvendorservice
     start loghidlsysservice
+
+
 
 service prop_init /vendor/bin/prop_init
     class main

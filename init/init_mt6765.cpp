@@ -56,24 +56,23 @@ void property_override(char const prop[], char const value[])
         __system_property_add(prop, strlen(prop), value, strlen(value));
 }
 
+void check_variant_and_set_props() {
+    if (access("/dev/ccci_aud", F_OK) == 0) {
+        android::base::SetProperty("ro.boot.radio.type", "lte");
+    } else {
+        android::base::SetProperty("ro.boot.radio.type", "wifi");
+        
+        android::base::SetProperty("ro.radio.noril", "yes");
+        android::base::SetProperty("ro.carrier", "wifi-only");
+    }
+}
+
 void set_go_default_props() {
     struct sysinfo sys;
     sysinfo(&sys);
 
     if (sys.totalram <= 3072ull * 1024 * 1024) {
         property_override("ro.config.low_ram", "true");
-
-        property_override("ro.lmk.use_psi", "true");
-        property_override("ro.lmk.use_minfree_levels", "false");
-
-        property_override("ro.lmk.kill_heaviest_task", "false");
-
-        property_override("ro.lmk.swap_util_max", "96");
-        property_override("ro.lmk.swap_free_low_percentage", "5");
-
-        property_override("ro.lmk.thrashing_limit", "100");
-        property_override("ro.lmk.thrashing_limit_decay", "25");
-
         property_override("ro.config.low_ram2g", "true");
 
         property_override("ro.launcher.blur.appLaunch", "0");
@@ -81,8 +80,6 @@ void set_go_default_props() {
         property_override("ro.sf.blurs_are_expensive", "1");
         property_override("persist.sys.sf.disable_blurs", "1");
         property_override("ro.sf.blurs_are_caro", "1");
-	property_override("ro.lmk.min_adj", "200");
-	property_override("ro.lmk.psi_critical_stall_ms", "250");
         property_override("fw.max_users", "1");
         property_override("fw.power_user_switcher", "0");
         property_override("fw.show_guest_on_lockscreen", "0");
@@ -101,10 +98,18 @@ void set_go_default_props() {
         property_override("dalvik.vm.heapmaxfree", "8m");
 
         property_override("ro.config.small_battery", "true");
+    }
+    else
+    {
+	property_override("ro.config.low_ram", "true");
 
+        property_override("ro.launcher.blur.appLaunch", "0");
+        property_override("ro.surface_flinger.supports_background_blur", "0");
+        property_override("ro.sf.blurs_are_expensive", "1");
     }
 }
 
 void vendor_load_properties() {
     set_go_default_props();
+    check_variant_and_set_props();
 }
