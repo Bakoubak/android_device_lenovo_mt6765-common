@@ -1083,7 +1083,7 @@ on property:persist.vendor.mediatek.fg.log.enable=1
     write /sys/bus/platform/devices/battery/FG_daemon_log_level 7
     write /proc/sys/kernel/printk 8
 
-on property:ro.boot.radio.type=wifi && on property:sys.boot_completed=1 
+on property:ro.boot.radio.type=wifi && property:sys.boot_completed=1 
     stop ccci_mdinit
     stop ccci3_mdinit
 
