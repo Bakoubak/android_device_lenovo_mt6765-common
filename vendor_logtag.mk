@@ -270,4 +270,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.log.tag.TuningMgr=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.Camera3-OutputUtils=$(VENDOR_LOG_LEVEL_I) \
     persist.log.tag.ULog=$(VENDOR_LOG_LEVEL_I) \
-    persist.log.tag.VDO_LOG=$(VENDOR_LOG_LEVEL_I)
+    persist.log.tag.VDO_LOG=$(VENDOR_LOG_LEVEL_I) \
+    persist.log.tag.SpeechMessengerNormal=$(VENDOR_LOG_LEVEL_I)
