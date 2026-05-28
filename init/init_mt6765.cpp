@@ -101,11 +101,21 @@ void set_go_default_props() {
     }
     else
     {
-	property_override("ro.config.low_ram", "true");
-
         property_override("ro.launcher.blur.appLaunch", "0");
         property_override("ro.surface_flinger.supports_background_blur", "0");
         property_override("ro.sf.blurs_are_expensive", "1");
+	property_override("ro.lmk.min_adj", "200");
+	property_override("ro.lmk.psi_critical_stall_ms", "250");
+        property_override("ro.lmk.use_psi", "true");
+        property_override("ro.lmk.use_minfree_levels", "false");
+
+        property_override("ro.lmk.kill_heaviest_task", "false");
+
+        property_override("ro.lmk.swap_util_max", "96");
+        property_override("ro.lmk.swap_free_low_percentage", "5");
+
+        property_override("ro.lmk.thrashing_limit", "100");
+        property_override("ro.lmk.thrashing_limit_decay", "25");
     }
 }
 
