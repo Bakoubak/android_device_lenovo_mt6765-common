@@ -106,8 +106,8 @@ void set_go_default_props() {
         property_override("ro.sf.blurs_are_expensive", "1");
 	property_override("ro.lmk.min_adj", "0");
 	property_override("ro.lmk.psi_critical_stall_ms", "70");
-        property_override("ro.lmk.use_psi", "true");
-        property_override("ro.lmk.use_minfree_levels", "false");
+        property_override("ro.lmk.use_psi", "false");
+        property_override("ro.lmk.use_minfree_levels", "true");
 	property_override("ro.lmk.psi_low", "10");
 	property_override("ro.lmk.psi_medium", "20");
 	property_override("ro.lmk.psi_critical", "25");
