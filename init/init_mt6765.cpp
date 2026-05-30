@@ -74,7 +74,16 @@ void set_go_default_props() {
     if (sys.totalram <= 3072ull * 1024 * 1024) {
         property_override("ro.config.low_ram", "true");
         property_override("ro.config.low_ram2g", "true");
+        property_override("ro.lmk.use_psi", "true");
+        property_override("ro.lmk.use_minfree_levels", "false");
 
+        property_override("ro.lmk.kill_heaviest_task", "false");
+
+        property_override("ro.lmk.swap_util_max", "96");
+        property_override("ro.lmk.swap_free_low_percentage", "5");
+
+        property_override("ro.lmk.thrashing_limit", "100");
+        property_override("ro.lmk.thrashing_limit_decay", "25");
         property_override("ro.launcher.blur.appLaunch", "0");
         property_override("ro.surface_flinger.supports_background_blur", "0");
         property_override("ro.sf.blurs_are_expensive", "1");
