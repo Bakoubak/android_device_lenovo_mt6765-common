@@ -30,12 +30,10 @@ namespace_imports = [
     "hardware/google/interfaces",
     "hardware/google/pixel",
     "hardware/mediatek",
-    "hardware/mediatek/libmtkperf_client",
-    "device/lenovo/mt6765-common/lights",
-    "device/lenovo/mt6765-common/libshims",
     "hardware/lineage/interfaces/power-libperfmgr",
+    "device/lenovo/mt6765-common",
     "vendor/lenovo/amar_row_lte",
-    "device/lenovo/mt6765-common/vndk",
+    "hardware/mediatek/libmtkperf_client",
 ]
 
 blob_fixups: blob_fixups_user_type = {
