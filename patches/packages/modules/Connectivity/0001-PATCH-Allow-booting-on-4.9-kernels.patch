@@ -1,0 +1,75 @@
+From b3a22cf8e50b529fa1b1c69558342083254f9310 Mon Sep 17 00:00:00 2001
+From: Anael <bakoubak85@gmail.com>
+Date: Sat, 13 Jun 2026 13:43:58 +0000
+Subject: [PATCH] [PATCH]: Allow booting on 4.9 kernels
+
+Change-Id: Ia875a902e26e4201e20ea07087bf9b98fd91178f
+---
+ bpf/loader/NetBpfLoad.cpp                           | 13 ++++++-------
+ ..._android_server_connectivity_ClatCoordinator.cpp |  2 +-
+ 2 files changed, 7 insertions(+), 8 deletions(-)
+
+diff --git a/bpf/loader/NetBpfLoad.cpp b/bpf/loader/NetBpfLoad.cpp
+index 2388647..390ddab 100644
+--- a/bpf/loader/NetBpfLoad.cpp
++++ b/bpf/loader/NetBpfLoad.cpp
+@@ -460,7 +460,7 @@ static bool mapMatchesExpectations(const unique_fd& fd,
+     // This is because the primary failure mode we're trying to detect here
+     // is either a source code misconfiguration (which is likely kernel independent)
+     // or a newly introduced kernel feature/bug (which is unlikely to get backported to 4.9).
+-    if (!isAtLeastKernelVersion(4, 14)) return true;
++    if (!isAtLeastKernelVersion(4, 9)) return true;
+ 
+     // Assuming fd is a valid Bpf Map file descriptor then
+     // all the following should always succeed on a 4.14+ kernel.
+@@ -1613,22 +1613,19 @@ static int doLoad(char** argv, char * const envp[]) {
+ 
+     // U bumps the kernel requirement up to 4.14
+     if (isAtLeastU && !isAtLeastKernelVersion(4, 14)) {
+-        ALOGE("Android U requires kernel 4.14.");
+-        return 4;
++        ALOGW("Android U requires kernel 4.14.");
+     }
+ 
+     // V bumps the kernel requirement up to 4.19
+     // see also: //system/netd/tests/kernel_test.cpp TestKernel419
+     if (isAtLeastV && !isAtLeastKernelVersion(4, 19)) {
+-        ALOGE("Android V requires kernel 4.19.");
+-        return 5;
++        ALOGW("Android V requires kernel 4.19.");
+     }
+ 
+     // 25Q2 bumps the kernel requirement up to 5.4
+     // see also: //system/netd/tests/kernel_test.cpp TestKernel54
+     if (isAtLeast25Q2 && !isAtLeastKernelVersion(5, 4)) {
+-        ALOGE("Android 25Q2 requires kernel 5.4.");
+-        return 6;
++        ALOGW("Android 25Q2 requires kernel 5.4.");
+     }
+ 
+     // 25Q4 bumps the kernel requirement up to 5.10
+@@ -1685,6 +1682,8 @@ static int doLoad(char** argv, char * const envp[]) {
+ 
+ #undef REQUIRE
+ 
++	bad = false;
++
+         if (bad) {
+             ALOGE("Unsupported kernel version (%07x).", kernelVer);
+         }
+diff --git a/service/jni/com_android_server_connectivity_ClatCoordinator.cpp b/service/jni/com_android_server_connectivity_ClatCoordinator.cpp
+index 70991eb..0230755 100644
+--- a/service/jni/com_android_server_connectivity_ClatCoordinator.cpp
++++ b/service/jni/com_android_server_connectivity_ClatCoordinator.cpp
+@@ -71,7 +71,7 @@ static void verifyPerms(const char * const path,
+     char b[255] = {};
+     int v = lgetxattr(path, "security.selinux", &b, sizeof(b));
+     if (v < 0) ALOGF("lgetxattr '%s' errno=%d", path, errno);
+-    if (strncmp(ctxt, b, sizeof(b))) ALOGF("context of '%s' is '%s' != '%s'", path, b, ctxt);
++// if (strncmp(ctxt, b, sizeof(b))) ALOGF("context of '%s' is '%s' != '%s'", path, b, ctxt);
+ 
+     int fd = -1;
+ 
+-- 
+2.43.0
+
