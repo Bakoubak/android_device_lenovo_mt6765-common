@@ -1,0 +1,90 @@
+From 26d4f16bc848662e83e14d2d0ea3d3b2fd2bd23a Mon Sep 17 00:00:00 2001
+From: Anael <bakoubak85@gmail.com>
+Date: Tue, 16 Jun 2026 09:55:03 +0000
+Subject: [PATCH] prevent artificial requirements set by Google
+
+Change-Id: I9bc6203774f2e3fb23ed6d3fa60d29edca658d01
+---
+ bpf/loader/NetBpfLoad.cpp                     |  8 +-
+ bpf/netd/BpfHandler.cpp                       | 18 ++---
+ 2 files changed, 26 insertions(+), 13 deletions(-)
+
+diff --git a/bpf/loader/NetBpfLoad.cpp b/bpf/loader/NetBpfLoad.cpp
+index 390ddab..bca1741 100644
+--- a/bpf/loader/NetBpfLoad.cpp
++++ b/bpf/loader/NetBpfLoad.cpp
+@@ -460,7 +460,7 @@ static bool mapMatchesExpectations(const unique_fd& fd,
+     // This is because the primary failure mode we're trying to detect here
+     // is either a source code misconfiguration (which is likely kernel independent)
+     // or a newly introduced kernel feature/bug (which is unlikely to get backported to 4.9).
+-    if (!isAtLeastKernelVersion(4, 9)) return true;
++    if (!isAtLeastKernelVersion(4, 14)) return true;
+ 
+     // Assuming fd is a valid Bpf Map file descriptor then
+     // all the following should always succeed on a 4.14+ kernel.
+@@ -787,7 +787,7 @@ static int pinMap(const borrowed_fd& fd, const struct bpf_map_def& mapDef) {
+ }
+ 
+ static bool isMapTypeSupported(enum bpf_map_type type) {
+-    if (type == BPF_MAP_TYPE_LPM_TRIE && !isAtLeastKernelVersion(4, 14)) {
++    if (type == BPF_MAP_TYPE_LPM_TRIE && !isAtLeastKernelVersion(4, 9)) {
+         // On Linux Kernels older than 4.14 this map type doesn't exist - autoskip.
+         return false;
+     }
+@@ -1822,13 +1822,13 @@ static int doLoad(char** argv, char * const envp[]) {
+         // There should not be any programs or maps yet
+         errno = 0;
+         uint32_t progId = bpfGetNextProgId(0);  // expect 0 with errno == ENOENT
+-        if (progId || errno != ENOENT) {
++        if (progId || (errno != ENOENT && errno != EINVAL)) {
+             ALOGE("bpfGetNextProgId(zero) returned %u (errno %d)", progId, errno);
+             return 32;
+         }
+         errno = 0;
+         uint32_t mapId = bpfGetNextMapId(0);  // expect 0 with errno == ENOENT
+-        if (mapId || errno != ENOENT) {
++        if (mapId || (errno != ENOENT && errno != EINVAL)) {
+             ALOGE("bpfGetNextMapId(zero) returned %u (errno %d)", mapId, errno);
+             return 33;
+         }
+diff --git a/bpf/netd/BpfHandler.cpp b/bpf/netd/BpfHandler.cpp
+index 7367ec5..2f95df9 100644
+--- a/bpf/netd/BpfHandler.cpp
++++ b/bpf/netd/BpfHandler.cpp
+@@ -87,9 +87,9 @@ static Status initPrograms(const char* cg2_path) {
+     }
+ 
+     // U bumps the kernel requirement up to 4.14
+-    if (isAtLeastU && !isAtLeastKernelVersion(4, 14)) {
+-        return Status("U+ platform with kernel version < 4.14.0 is unsupported");
+-    }
++    // if (isAtLeastU && !isAtLeastKernelVersion(4, 14)) {
++    //     return Status("U+ platform with kernel version < 4.14.0 is unsupported");
++    // }
+ 
+     // U mandates this mount point (though it should also be the case on T)
+     if (isAtLeastU && !!strcmp(cg2_path, "/sys/fs/cgroup")) {
+@@ -97,14 +97,14 @@ static Status initPrograms(const char* cg2_path) {
+     }
+ 
+     // V bumps the kernel requirement up to 4.19
+-    if (isAtLeastV && !isAtLeastKernelVersion(4, 19)) {
+-        return Status("V+ platform with kernel version < 4.19.0 is unsupported");
+-    }
++    // if (isAtLeastV && !isAtLeastKernelVersion(4, 19)) {
++    //    return Status("V+ platform with kernel version < 4.19.0 is unsupported");
++    //}
+ 
+     // 25Q2 bumps the kernel requirement up to 5.4
+-    if (isAtLeast25Q2 && !isAtLeastKernelVersion(5, 4)) {
+-        return Status("25Q2+ platform with kernel version < 5.4.0 is unsupported");
+-    }
++    //if (isAtLeast25Q2 && !isAtLeastKernelVersion(5, 4)) {
++    //    return Status("25Q2+ platform with kernel version < 5.4.0 is unsupported");
++    //}
+ 
+     unique_fd cg_fd(open(cg2_path, O_DIRECTORY | O_RDONLY | O_CLOEXEC));
+     if (!cg_fd.ok()) return statusFromErrno(errno, "Opening cgroup dir failed");
+-- 
+2.43.0
+
