@@ -94,7 +94,8 @@ PRODUCT_PACKAGES += \
     android.hardware.common-V2-ndk_platform \
     android.hardware.graphics.common-V2-ndk_platform \
     libhidlbase-v34 \
-    libprocessgroup-v34
+    libprocessgroup-v34 \
+    libbase-v34
 
 # Dolby
 PRODUCT_PACKAGES += \

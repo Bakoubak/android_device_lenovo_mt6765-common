@@ -104,7 +104,31 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libkeymaster_messages.so', 'libkeymaster_messages-v29.so'),
 
     'vendor/bin/hw/vendor.microtrust.hardware.capi@2.0-service': blob_fixup()
-        .replace_needed('libhidlbase.so', 'libhidlbase-v34.so'), 
+        .replace_needed('libhidlbase.so', 'libhidlbase-v34.so'),
+
+    'vendor/bin/ccci_fsd': blob_fixup()
+        .add_needed('libbase-v34.so'),
+
+    'vendor/bin/ccci_mdinit': blob_fixup()
+        .add_needed('libbase-v34.so'),
+
+    'vendor/bin/fuelgauged_nvram': blob_fixup()
+        .add_needed('libbase-v34.so'),
+
+    'vendor/bin/mnld': blob_fixup()
+        .add_needed('libbase-v34.so'),
+
+    'vendor/bin/nvram_daemon': blob_fixup()
+        .add_needed('libbase-v34.so'),
+
+    'vendor/bin/hw/vendor.mediatek.hardware.nvram@1.1-service': blob_fixup()
+        .add_needed('libbase-v34.so'),
+
+    'libmtkcam_device3.so': blob_fixup()
+        .add_needed('libbase-v34.so'),
+
+    'vendor/lib/libnvram.so': blob_fixup()
+        .replace_needed('libbase.so', 'libbase-v34.so'),
     
     'vendor/lib/libvcodec_oal.so': blob_fixup()
         .clear_symbol_version('__aeabi_memcpy')
