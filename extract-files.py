@@ -127,7 +127,7 @@ blob_fixups: blob_fixups_user_type = {
     'libmtkcam_device3.so': blob_fixup()
         .add_needed('libbase-v34.so'),
 
-    'vendor/lib/libnvram.so': blob_fixup()
+    ('vendor/lib/libnvram.so', 'vendor/lib64/libnvram.so'): blob_fixup()
         .replace_needed('libbase.so', 'libbase-v34.so'),
     
     'vendor/lib/libvcodec_oal.so': blob_fixup()
