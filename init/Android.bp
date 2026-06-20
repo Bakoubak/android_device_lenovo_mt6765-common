@@ -1,0 +1,18 @@
+//
+// Copyright (C) 2023 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_static {
+    name: "libinit_mt6765",
+    recovery_available: true,
+    srcs: ["init_mt6765.cpp"],
+    whole_static_libs: ["libbase"],
+    header_libs: [
+        "libbase_headers",
+    ],
+    include_dirs: [
+        "system/core/init"
+    ]
+}
