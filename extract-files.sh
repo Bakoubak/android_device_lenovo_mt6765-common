@@ -107,6 +107,7 @@ if [ -z "${ONLY_TARGET}" ]; then
     setup_vendor "${DEVICE_COMMON}" "${VENDOR}" "${ANDROID_ROOT}" true "${CLEAN_VENDOR}"
 
     extract "${MY_DIR}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
+    extract_firmware "${MY_DIR}/proprietary-firmware.txt" "${SRC}"
 fi
 
 if [ -z "${ONLY_COMMON}" ] && [ -s "${MY_DIR}/../${DEVICE}/proprietary-files.txt" ]; then
@@ -115,10 +116,6 @@ if [ -z "${ONLY_COMMON}" ] && [ -s "${MY_DIR}/../${DEVICE}/proprietary-files.txt
     setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"
 
     extract "${MY_DIR}/../${DEVICE}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
-fi
-
-if [ -z "${ONLY_FIRMWARE}" ] && [ -s "${MY_DIR}/../${DEVICE}/proprietary-firmware.txt" ]; then
-    extract_firmware "${MY_DIR}/proprietary-firmware.txt" "${SRC}"
 fi
 
 "${MY_DIR}/setup-makefiles.sh"
