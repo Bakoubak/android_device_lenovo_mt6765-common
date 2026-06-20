@@ -72,9 +72,6 @@ on init
     # AEE
     write /proc/aed/generate-oops aee0
 
-    # AGO
-    write /sys/block/zram0/comp_algorithm lz4
-
     # Platform symlink
     symlink /dev/block/platform/bootdevice /dev/block/bootdevice
 
@@ -105,8 +102,6 @@ on charger
     write /sys/devices/system/cpu/cpu5/online 0
     write /sys/devices/system/cpu/cpu4/online 0
 
-    exec /system/bin/e2fsck -f -p /dev/block/platform/bootdevice/by-name/cache
-    mount ext4 /dev/block/platform/bootdevice/by-name/cache /cache rw wait
     chmod 0666 /dev/kmsg
     chmod 0775 /mnt/vendor
     mkdir /mnt/vendor/nvcfg
@@ -130,15 +125,12 @@ on charger
     start fuelgauged
     start fuelgauged_nvram
 
-    chown system system /sys/class/leds/lcd-backlight/brightness
-    chown system system /sys/class/leds/red/brightness
-    chown system system /sys/class/leds/green/brightness
+    write /sys/class/leds/lcd-backlight/brightness "255"
+    write /sys/class/leds/lcd-backlight/trigger "backlight"
 
     start servicemanager
     start hwservicemanager
-    start light-hal-2-0
-    start health-hal-2-0
-
+    
 on fs
     write /proc/bootprof "INIT:Mount_START"
     write /sys/kernel/debug/tracing/trace_marker "B|1|Mount"
@@ -147,6 +139,8 @@ on fs
     mount_all /vendor/etc/fstab.mt6765
     write /sys/kernel/debug/tracing/trace_marker "E"
     write /proc/bootprof "INIT:Mount_END"
+
+    start dms-hal-2-0
 
 on fs
    mount iso9660 loop@/vendor/etc/iAmCdRom.iso /mnt/cd-rom ro
@@ -188,6 +182,12 @@ on post-fs
 
     chown system system /mnt/vendor/protect_s
     chmod 0770 /mnt/vendor/protect_s
+
+on post-fs && property:persist.vendor.debug.logs=1
+    rm /cache/logcat.${ro.hardware}.txt
+    start logcat_cache
+    rm /cache/dmesg.${ro.hardware}.txt
+    start dmesg_cache
 
 on post-fs-data
     write /proc/bootprof "INIT:post-fs-data"
@@ -477,7 +477,7 @@ on post-fs-data
     chown root system /dev/sec
 
     # FM Radio device node
-    chmod 0660 /dev/fm
+    chmod 0667 /dev/fm
     chown media media /dev/fm
 
     # Device info /proc interface
@@ -566,7 +566,7 @@ on post-fs-data
     chown system media /dev/mt-mdp
 
     # SMI
-    chmod 0660 /dev/MTK_SMI
+    chmod 0666 /dev/MTK_SMI
     chown media media /dev/MTK_SMI
 
     # RRC
@@ -638,11 +638,15 @@ on post-fs-data
 
     # AGO
     write /proc/sys/vm/page-cluster 0
+    write /proc/sys/vm/dirty_background_ratio 5
+    write /proc/sys/vm/dirty_ratio 10
+    write /sys/block/zram0/backing_dev /data/unencrypted/zram_swap
+    write /sys/block/zram0/writeback_limit_enable 1
+    write /sys/block/zram0/writeback_limit 512000
+    write /sys/block/zram0/idle 1
+    mkdir /data/unencrypted 0771 system system
+    write /sys/block/zram0/use_dedup 1
     swapon_all /vendor/etc/fstab.mt6765
-    write /dev/memcg/memory.swappiness 150
-    write /dev/memcg/apps/memory.swappiness 150
-    write /dev/memcg/system/memory.swappiness 150
-    write /proc/sys/vm/swappiness 150
 
 on post-fs-data && property:ro.crypto.type=block
     mkdir /data/unencrypted
@@ -682,6 +686,9 @@ on boot
     chown system system /sys/devices/system/cpu/rq-stats/avg_htasks_thresh
     chmod 0660 /sys/devices/system/cpu/rq-stats/avg_htasks_thresh
 
+    chown system system /sys/class/power_supply/battery/charging_enabled
+    chmod 0664 /sys/class/power_supply/battery/charging_enabled
+
     chown system /sys/module/mlog/parameters/do_mlog
     chown system /sys/module/mlog/parameters/timer_intval
 
@@ -707,9 +714,6 @@ on boot
 
     # FPSGO FBT Game
     insmod /vendor/lib/modules/fpsgo.ko
-
-    write  /proc/sys/vm/dirty_ratio  1
-    write  /proc/sys/vm/dirty_background_ratio  1
 
     # Smartbook Handler Framework
     chown system system /sys/power/sb_state
@@ -899,6 +903,9 @@ on boot
     chown root radio /proc/net/netfilter/nfnetlink_log
     chown root radio /proc/net/netfilter/nfnetlink_queue
 
+    # Restrict permissions to socket file 
+    chmod 440 /proc/net/unix
+
     # WMT proc
     chown shell system /proc/driver/wmt_dbg
     chown shell system /proc/driver/wmt_aee
@@ -974,6 +981,27 @@ on property:sys.boot_completed=1
     write /proc/bootprof "0"
     write /proc/mtprintk ${persist.vendor.uartconsole.enable}
 
+on property:sys.boot_completed=1
+    write /dev/memcg/memory.swappiness 100
+    write /dev/memcg/apps/memory.swappiness 100
+    write /dev/memcg/system/memory.swappiness 80
+    
+    write /proc/sys/vm/swappiness 45
+    write /proc/sys/vm/vfs_cache_pressure 150
+    write /proc/sys/vm/page-cluster 0
+    
+    write /proc/sys/vm/min_free_kbytes 32768
+    write /proc/sys/vm/extra_free_kbytes 8192
+    write /proc/sys/vm/watermark_scale_factor 150
+    
+    write /proc/sys/vm/dirty_background_ratio 5
+    write /proc/sys/vm/dirty_ratio 10
+    write /proc/sys/vm/dirty_writeback_centisecs 300
+    write /proc/sys/vm/compact_unevictable_allowed 1
+
+on property:init.svc.console=running
+    stop console
+
 ## mtk printk uart controller
 on property:persist.vendor.uartconsole.enable=*
     write /proc/mtprintk ${persist.vendor.uartconsole.enable}
@@ -1016,8 +1044,8 @@ on property:sys.boot_completed=1
     write /proc/sys/kernel/sched_migration_cost_ns 200000
 
     # switch to sched-dvfs
-    write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor "schedplus"
-    write /sys/devices/system/cpu/cpufreq/policy4/scaling_governor "schedplus"
+    write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor "schedutil"
+    write /sys/devices/system/cpu/cpufreq/policy4/scaling_governor "schedutil"
 
     # restore perf. parameters
     write /proc/perfmgr/boost_ctrl/eas_ctrl/boot_boost "0 0"
@@ -1058,6 +1086,21 @@ on property:persist.vendor.mediatek.fg.log.enable=1
     write /sys/bus/platform/devices/battery/FG_daemon_log_level 7
     write /proc/sys/kernel/printk 8
 
+on property:ro.boot.radio.type=wifi && property:sys.boot_completed=1
+    stop ccci_mdinit
+    stop ccci3_mdinit
+
+    stop vendor.ccci_fsd
+    stop vendor.ccci3_fsd
+
+    stop vendor.ccci_rpcd
+
+    stop ril-daemon
+    stop vendor.ril-daemon
+    stop vendor.radio-hal-1-4
+
+    restart vendor.audio-hal-2-0
+
 # add meta_tst for ATM
 service meta_tst /vendor/bin/meta_tst
     class main
@@ -1081,6 +1124,8 @@ on property:sys.boot_completed=1 && property:ro.boot.atm=enable
     start loghidlvendorservice
     start loghidlsysservice
 
+
+
 service prop_init /vendor/bin/prop_init
     class main
     user root
@@ -1093,3 +1138,18 @@ service osi /system/bin/osi
     disabled
     oneshot
     #seclabel u:r:osi:s0
+
+service logcat_cache /system/bin/logcat -b all -f /cache/logcat.${ro.hardware}.txt -v threadtime
+    class main
+    user root
+    group system
+    disabled 
+
+service dmesg_cache /system/bin/sh -c "/system/bin/dmesg -wT > /cache/dmesg.${ro.hardware}.txt"
+    class core
+    user root
+    group root
+    oneshot
+    disabled
+    seclabel u:r:su:s0
+
