@@ -129,7 +129,11 @@ blob_fixups: blob_fixups_user_type = {
 
     ('vendor/lib/libnvram.so', 'vendor/lib64/libnvram.so'): blob_fixup()
         .replace_needed('libbase.so', 'libbase-v34.so'),
-    
+
+    ('vendor/bin/hw/mtkfusionrild'): blob_fixup()
+        .add_needed('libbase-v34.so')
+        .add_needed('libutils-v34.so'),
+
     'vendor/lib/libvcodec_oal.so': blob_fixup()
         .clear_symbol_version('__aeabi_memcpy')
         .clear_symbol_version('__aeabi_memset')
